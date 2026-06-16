@@ -95,6 +95,9 @@ namespace JRD_Projects.Controllers
         [HttpGet("visitlog")]
         public async Task<IActionResult> VisitLog()
         {
+            Console.WriteLine("REMOTE IP: " + HttpContext.Connection.RemoteIpAddress);
+            Console.WriteLine("X-FORWARDED-FOR: " + HttpContext.Request.Headers["X-Forwarded-For"]);
+
             if (!IsOwnerRequest())
                 return Forbid();
 
