@@ -171,8 +171,7 @@
         async function checkOwner() {
             const res = await fetch("/api/visitor/getcount");
 
-            if (res.ok) {
-                // Backend allowed the request → you're the owner
+            if (res.ok) { 
                 document.getElementById("ownerOnly").style.display = "inline-block";
             }
         }
