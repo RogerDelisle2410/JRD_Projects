@@ -23,6 +23,7 @@
             <div class="title-main">Sample Projects of Roger Delisle</div>
             <div class="title-sub">JRD.Consulting@hotmail.com &nbsp;&nbsp; (403) 710-5817</div>
 
+
             <!-- Visitor Counter -->
             <div style="margin-top:8px; font-size:14px; font-weight:bold;">
                 <div id="ownerOnly" style="display:none;">
@@ -31,6 +32,7 @@
                     &nbsp;&nbsp;
                     <button id="showLogBtn" class="btn btn-xs btn-default">Show Log</button>
                     <button id="closeLogBtn" class="btn btn-xs btn-default" style="display:none;">Close</button>
+                    <button onclick="showIpDebug()">Show IP Debug</button>
                 </div>
 
             </div>
@@ -277,28 +279,28 @@
             const logs = await res.json();
 
             let html = `
-                    <table class="table table-bordered table-striped" style="font-size:13px;">
-                        <tr style="background:#f0f0f0; font-weight:bold;">
-                            <th>ID</th>
-                            <th>Timestamp (UTC)</th>
-                            <th>IP</th>
-                            <th>User Agent</th>
-                            <th>Owner</th>
-                            <th>Location</th>
-                        </tr>
-                `;
+                            <table class="table table-bordered table-striped" style="font-size:13px;">
+                                <tr style="background:#f0f0f0; font-weight:bold;">
+                                    <th>ID</th>
+                                    <th>Timestamp (UTC)</th>
+                                    <th>IP</th>
+                                    <th>User Agent</th>
+                                    <th>Owner</th>
+                                    <th>Location</th>
+                                </tr>
+                        `;
 
             logs.forEach(log => {
                 html += `
-                        <tr>
-                            <td>${log.id}</td>
-                            <td>${log.timestamp}</td>
-                            <td>${log.ip}</td>
-                            <td>${log.user_agent}</td>
-                            <td>${log.is_owner}</td>
-                            <td>${log.location}</td>
-                        </tr>
-                    `;
+                                <tr>
+                                    <td>${log.id}</td>
+                                    <td>${log.timestamp}</td>
+                                    <td>${log.ip}</td>
+                                    <td>${log.user_agent}</td>
+                                    <td>${log.is_owner}</td>
+                                    <td>${log.location}</td>
+                                </tr>
+                            `;
             });
 
             html += "</table>";
@@ -324,6 +326,21 @@
         checkOwner();
         logVisit();
     </script>
+    <script>
+        function showIpDebug() {
+            fetch("/api/visitor/debug-ip")
+                .then(r => r.json())
+                .then(data => {
+                    alert(
+                        "REMOTE IP: " + data.remoteIp +
+                        "\nX-FORWARDED-FOR: " + data.forwardedFor
+                    );
+                });
+        }
+    </script>
+
+    <button onclick="showIpDebug()">Show IP Debug</button>
+
 
 </body>
 </html>

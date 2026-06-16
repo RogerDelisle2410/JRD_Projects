@@ -70,6 +70,19 @@ namespace JRD_Projects.Controllers
             return Ok(new { status = "ok" });
         }
 
+        [HttpGet("debug-ip")]
+        public IActionResult DebugIp()
+        {
+            var remote = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+            var forwarded = HttpContext.Request.Headers["X-Forwarded-For"].ToString();
+
+            return Ok(new
+            {
+                remoteIp = remote,
+                forwardedFor = forwarded
+            });
+        }
+
 
         [HttpGet("getcount")]
         public async Task<IActionResult> GetCount()
