@@ -1,0 +1,161 @@
+﻿/* Lock page to one screen, remove vertical scroll */
+html, body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto !important;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom right, lightblue, cyan);
+}
+
+/* Page layout: header + content + footer */
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* HEADER */
+.header {
+    flex: 0 0 60px;
+    background: linear-gradient(to bottom right, lightblue, cyan);
+    text-align: center;
+    /* padding: 25px 0;*/
+}
+
+.title-main {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 1px;
+}
+
+.title-sub {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* MAIN CONTENT AREA */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* centers the rows vertically */
+    overflow: hidden;
+}
+
+/* TWO ROWS OF PANELS */
+.flex-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 60%; /* each row takes half the available space */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* PROJECT PANELS */
+.panel {
+    border-style: solid;
+    border-color: blue;
+    border-width: 1px;
+    width: 240px;
+    height: 230px;
+    align-content: center;
+    background: linear-gradient(to bottom right, lightblue, cyan);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    border-radius: 6px;
+    overflow: hidden; /* prevents text overflow */
+    text-align: center;
+}
+
+
+/* TEXT INSIDE PANELS */
+p {
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+/* FOOTER */
+.footer {
+    flex: 0 0 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom right, lightblue, cyan);
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* UNUSED ORIGINAL LAYOUT ELEMENTS (SAFE TO REMOVE IF YOU WANT) */
+.column {
+    float: left;
+    height: 450px;
+}
+
+    .column.side {
+        width: 10%;
+        background: linear-gradient(to bottom right, lightblue, cyan);
+    }
+
+    .column.middle {
+        width: 80%;
+        background: linear-gradient(to bottom right, blue, cyan);
+    }
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+form {
+    margin: auto;
+    display: flex;
+}
+
+input {
+    align-items: center;
+    color: black;
+    height: 30px;
+    width: 180px;
+    margin: auto;
+    font-weight: bold;
+    background-color: lightblue;
+    margin-top: 2px;
+}
+
+.button-primary {
+    background: linear-gradient(180deg, #4a7dff, #2f5fe8);
+    color: white;
+    border: none;
+    height: 40px; /* button height */
+    line-height: 40px; /* centers text vertically */
+    width: 180px; /* optional: makes it look like your screenshot */
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    transition: 0.2s;
+    text-align: center;
+}
+
+    .button-primary:hover {
+        background: linear-gradient(180deg, #5b8aff, #3a6cf0);
+    }
+#visitorLog {
+    position: fixed;
+    top: 120px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    overflow-y: auto;
+}
