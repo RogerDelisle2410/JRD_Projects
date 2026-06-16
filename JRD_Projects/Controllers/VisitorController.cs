@@ -133,16 +133,38 @@ namespace JRD_Projects.Controllers
             return Ok(result);
         }
 
+        //private bool IsOwnerRequest()
+        //{
+        //    string ip = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+
+        //    // Allow localhost (IPv4 + IPv6)
+        //    if (ip == "127.0.0.1" || ip == "::1")
+        //        return true;
+
+        //    // Allow your real home IP
+        //    if (ip == "70.73.121.127")   // <-- replace with the REAL IP printed in console
+        //        return true;
+
+        //    return false;
+        //}
         private bool IsOwnerRequest()
         {
-            string ip = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+            // 1. Check X-Forwarded-For (Azure real client IP)
+            var forwarded = HttpContext.Request.Headers["X-Forwarded-For"].ToString();
 
-            // Allow localhost (IPv4 + IPv6)
+            if (!string.IsNullOrEmpty(forwarded))
+            {
+                // forwarded looks like: "70.73.121.127:58793"
+                var realIp = forwarded.Split(',')[0].Split(':')[0].Trim();
+
+                if (realIp == "70.73.121.127")
+                    return true;
+            }
+
+            // 2. Fallback to direct connection IP (local dev)
+            var ip = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+
             if (ip == "127.0.0.1" || ip == "::1")
-                return true;
-
-            // Allow your real home IP
-            if (ip == "70.73.121.127")   // <-- replace with the REAL IP printed in console
                 return true;
 
             return false;
