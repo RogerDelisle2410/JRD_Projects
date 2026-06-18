@@ -1,5 +1,6 @@
 ﻿using JRD_Projects.Data;
 using JRD_Projects.Models;
+using JRD_Projects.Services; // Add this line if EmailService is in the Services namespace
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Linq;
@@ -11,41 +12,48 @@ namespace JRD_Projects.Controllers
     public class VisitorController : ControllerBase
     {
         private readonly AppDbContext _db;
+        private readonly EmailService? _email;
 
         // Calgary timezone (Edmonton ID)
         private static readonly TimeZoneInfo CalgaryTZ =
             TimeZoneInfo.FindSystemTimeZoneById("America/Edmonton");
 
-        public VisitorController(AppDbContext db)
-        {
-            _db = db;
-        } 
-
-        // ⭐ ALWAYS LOG VISITS — NO OWNER CHECK
+        // ⭐ ALWAYS LOG VISITS — NO OWNER CHECK 
         [HttpPost("visit")]
-        public async Task<IActionResult> Visit() 
+        public async Task<IActionResult> Visit()
         {
             Console.WriteLine("VISIT HIT");
 
-            string ip = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "0.0.0.0";
-            //string userAgent = Request.Headers["User-Agent"].ToString();
+            // Get IP (but do NOT store it)
+            string? ip = HttpContext.Connection.RemoteIpAddress?.ToString();
+            if (string.IsNullOrWhiteSpace(ip) || ip == "::1")
+                ip = "127.0.0.1";
+
+            // Lookup location
             string location = await LookupLocation(ip);
 
-            // Convert UTC → Calgary BEFORE saving
             DateTime calgaryTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, CalgaryTZ);
 
+            // Store ONLY location + timestamp
             _db.VisitorLog.Add(new VisitorLog
             {
-                //Ip = ip,
-                //UserAgent = userAgent,
-                //IsOwner = false,
                 Location = location,
-                Timestamp = calgaryTime   // <-- Calgary time stored in DB
+                Timestamp = calgaryTime
             });
 
             await _db.SaveChangesAsync();
 
+            // Email notification
+            string message = $"New visit at {calgaryTime:yyyy-MM-dd HH:mm:ss}\nLocation: {location}";
+            _email.Send("New Visitor", message);
+
             return Ok(new { status = "ok" });
+        }
+
+        public VisitorController(AppDbContext db, EmailService email)
+        {
+            _db = db;
+            _email = email;
         }
 
 
@@ -96,4 +104,3 @@ namespace JRD_Projects.Controllers
 
     }
 }
- 
