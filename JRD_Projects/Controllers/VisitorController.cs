@@ -34,8 +34,13 @@ namespace JRD_Projects.Controllers
         }
 
         [HttpPost("visit")]
-        public async Task<IActionResult> Visit([FromBody] JObject body)
+        public async Task<IActionResult> Visit([FromBody] JObject? body)  
         {
+            Console.WriteLine("VISIT HIT");
+            Console.WriteLine("Owner? " + IsOwnerRequest());
+            Console.WriteLine("IP: " + HttpContext.Connection.RemoteIpAddress);
+            Console.WriteLine("Forwarded: " + HttpContext.Request.Headers["X-Forwarded-For"]);
+
             bool isOwner = false;
 
             if (body != null && body.TryGetValue("owner", out var ownerToken))
@@ -127,24 +132,40 @@ namespace JRD_Projects.Controllers
 
         private bool IsOwnerRequest()
         {
-            // 1. Check X-Forwarded-For (Azure real client IP)
+            // Read headers
             var forwarded = HttpContext.Request.Headers["X-Forwarded-For"].ToString();
+            var remote = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
 
-            if (!string.IsNullOrEmpty(forwarded))
-            {
-                var realIp = forwarded.Split(',')[0].Split(':')[0].Trim();
+            Console.WriteLine("=== OWNER CHECK ===");
+            Console.WriteLine("Forwarded: " + forwarded);
+            Console.WriteLine("Remote:    " + remote);
 
-                if (realIp == "70.73.121.127")
-                    return true;
-            }
+            // Determine real IP
+            string realIp = null;
 
-            // 2. Local dev
-            var ip = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "";
+            if (!string.IsNullOrWhiteSpace(forwarded))
+                realIp = forwarded.Split(',')[0].Split(':')[0].Trim();
 
-            if (ip == "127.0.0.1" || ip == "::1")
+            if (string.IsNullOrWhiteSpace(realIp))
+                realIp = remote;
+
+            // Normalize IPv6-mapped IPv4
+            if (realIp != null && realIp.Contains("::ffff:"))
+                realIp = realIp.Replace("::ffff:", "");
+
+            Console.WriteLine("Real IP:   " + realIp);
+            Console.WriteLine("===================");
+
+            // ⭐ Your real home IP
+            if (realIp == "70.73.121.127")
+                return true;
+
+            // ⭐ Allow localhost for development
+            if (realIp == "127.0.0.1" || realIp == "::1")
                 return true;
 
             return false;
         }
+
     }
 }
