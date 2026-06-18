@@ -206,45 +206,12 @@
                 } catch (e) {
                     console.warn("Visit logging failed", e);
                 }
-            }
-
-            //async function loadCounts() {
-            //    try {
-            //        const res = await fetch(`${API}/api/visitor/getcount`);
-            //        const data = await res.json();
-
-            //        document.getElementById("visitCount").innerText = data.total;
-            //        document.getElementById("visitToday").innerText = data.today;
-            //    } catch (e) {
-            //        console.warn("Failed to load counts", e);
-            //    }
-            //}
+            } 
 
             logVisit();
         });
     </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-
-            const API = window.location.hostname.includes("azurewebsites.net")
-                ? "https://jrd-projects-api.azurewebsites.net"
-                : "https://localhost:7160";
-
-            async function logVisit() {
-                try {
-                    await fetch(`${API}/api/visitor/visit`, {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({})
-                    });
-                } catch (e) {
-                    console.warn("Visit logging failed", e);
-                }
-            }
-
-            logVisit();
-        });
-    </script>
+     
 
 </body>
 </html>
