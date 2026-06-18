@@ -31,7 +31,7 @@
                     &nbsp;&nbsp;
                     <button id="showLogBtn" class="btn btn-xs btn-default">Show Log</button>
                     <button id="closeLogBtn" class="btn btn-xs btn-default" style="display:none;">Close</button>
-                </div> 
+                </div>
             </div>-->
         </div>
 
@@ -192,7 +192,7 @@
 
             const API = window.location.hostname.includes("azurewebsites.net")
                 ? "https://jrd-projects-api.azurewebsites.net"
-                : "https://localhost:7160"; 
+                : "https://localhost:7160";
 
             async function logVisit() {
                 try {
@@ -202,134 +202,49 @@
                         body: JSON.stringify({ owner: false })
                     });
 
-                    await loadCounts();
+                    /*await loadCounts();*/
                 } catch (e) {
                     console.warn("Visit logging failed", e);
                 }
             }
 
-            async function loadCounts() {
-                try {
-                    const res = await fetch(`${API}/api/visitor/getcount`);
-                    const data = await res.json();
+            //async function loadCounts() {
+            //    try {
+            //        const res = await fetch(`${API}/api/visitor/getcount`);
+            //        const data = await res.json();
 
-                    document.getElementById("visitCount").innerText = data.total;
-                    document.getElementById("visitToday").innerText = data.today;
+            //        document.getElementById("visitCount").innerText = data.total;
+            //        document.getElementById("visitToday").innerText = data.today;
+            //    } catch (e) {
+            //        console.warn("Failed to load counts", e);
+            //    }
+            //}
+
+            logVisit();
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const API = window.location.hostname.includes("azurewebsites.net")
+                ? "https://jrd-projects-api.azurewebsites.net"
+                : "https://localhost:7160";
+
+            async function logVisit() {
+                try {
+                    await fetch(`${API}/api/visitor/visit`, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({})
+                    });
                 } catch (e) {
-                    console.warn("Failed to load counts", e);
+                    console.warn("Visit logging failed", e);
                 }
             }
 
             logVisit();
         });
     </script>
-
-    <!--<script>
-        document.addEventListener("DOMContentLoaded", () => {
-
-            const API = window.location.hostname.includes("azurewebsites.net")
-                ? "https://jrd-projects-api.azurewebsites.net"   // Azure API
-                : "https://localhost:7160";                      // Local API
-
-
-            async function logVisit() {
-                try {
-                    await fetch(`${API}/api/visitor/visit`, {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ owner: false })
-                    });
-
-                    await loadCounts();
-                } catch (e) {
-                    console.warn("Visit logging failed", e);
-                }
-            }
-
-            async function loadCounts() {
-                try {
-                    const res = await fetch(`${API}/api/visitor/getcount`);
-                    const data = await res.json();
-
-                    document.getElementById("visitCount").innerText = data.total;
-                    document.getElementById("visitToday").innerText = data.today;
-                } catch (e) {
-                    console.warn("Failed to load counts", e);
-                }
-            }
-
-            async function checkOwner() {
-                try {
-                    const res = await fetch(`${API}/api/visitor/isowner`);
-                    const data = await res.json();
-
-                    // ⭐ ONLY show the button if backend confirms you're the owner
-                    if (data.isOwner === true) {
-                        document.getElementById("ownerOnly").style.display = "inline-block";
-                    }
-
-                } catch (e) {
-                    console.warn("Owner check failed", e);
-                }
-            }
-
-            async function loadLog() {
-                try {
-                    const res = await fetch(`${API}/api/visitor/visitlog`);
-                    if (!res.ok) return;
-
-                    const logs = await res.json();
-
-                    let html = `
-                        <table class="table table-bordered table-striped" style="font-size:13px;">
-                            <tr style="background:#f0f0f0; font-weight:bold;">
-                                <th>ID</th>
-                                <th>Timestamp</th>
-                                <th>IP</th>
-                                <th>User Agent</th>
-                                <th>Owner</th>
-                                <th>Location</th>
-                            </tr>
-                    `;
-
-                    logs.forEach(log => {
-                        html += `
-                            <tr>
-                                <td>${log.id}</td>
-                                <td>${log.timestamp}</td>
-                                <td>${log.ip}</td>
-                                <td>${log.user_agent}</td>
-                                <td>${log.is_owner}</td>
-                                <td>${log.location}</td>
-                            </tr>
-                        `;
-                    });
-
-                    html += "</table>";
-
-                    document.getElementById("visitorLog").innerHTML = html;
-                } catch (e) {
-                    console.warn("Failed to load log", e);
-                }
-            }
-
-            document.getElementById("showLogBtn").addEventListener("click", async () => {
-                await loadLog();
-                document.getElementById("visitorLog").style.display = "block";
-                document.getElementById("closeLogBtn").style.display = "inline-block";
-            });
-
-            document.getElementById("closeLogBtn").addEventListener("click", () => {
-                document.getElementById("visitorLog").style.display = "none";
-                document.getElementById("closeLogBtn").style.display = "none";
-            });
-
-            checkOwner();
-            logVisit();
-        });
-    </script>-->
-
-
 
 </body>
 </html>
