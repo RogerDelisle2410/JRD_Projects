@@ -190,7 +190,10 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
 
-            const API = "https://localhost:7160";
+            const API = window.location.hostname.includes("azurewebsites.net")
+                ? "https://jrd-projects-api.azurewebsites.net"   // Azure API
+                : "https://localhost:7160";                      // Local API
+
 
             async function logVisit() {
                 try {
