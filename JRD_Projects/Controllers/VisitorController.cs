@@ -23,12 +23,12 @@ namespace JRD_Projects.Controllers
 
         // ⭐ ALWAYS LOG VISITS — NO OWNER CHECK
         [HttpPost("visit")]
-        public async Task<IActionResult> Visit([FromBody] JObject? body)
+        public async Task<IActionResult> Visit() 
         {
             Console.WriteLine("VISIT HIT");
 
             string ip = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "0.0.0.0";
-            string userAgent = Request.Headers["User-Agent"].ToString();
+            //string userAgent = Request.Headers["User-Agent"].ToString();
             string location = await LookupLocation(ip);
 
             // Convert UTC → Calgary BEFORE saving
@@ -36,9 +36,9 @@ namespace JRD_Projects.Controllers
 
             _db.VisitorLog.Add(new VisitorLog
             {
-                Ip = ip,
-                UserAgent = userAgent,
-                IsOwner = false,
+                //Ip = ip,
+                //UserAgent = userAgent,
+                //IsOwner = false,
                 Location = location,
                 Timestamp = calgaryTime   // <-- Calgary time stored in DB
             });
