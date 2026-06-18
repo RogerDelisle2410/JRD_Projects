@@ -23,7 +23,6 @@
             <div class="title-main">Sample Projects of Roger Delisle</div>
             <div class="title-sub">JRD.Consulting@hotmail.com &nbsp;&nbsp; (403) 710-5817</div>
 
-
             <!-- Visitor Counter -->
             <div style="margin-top:8px; font-size:14px; font-weight:bold;">
                 <div id="ownerOnly" style="display:none;">
@@ -32,7 +31,6 @@
                     &nbsp;&nbsp;
                     <button id="showLogBtn" class="btn btn-xs btn-default">Show Log</button>
                     <button id="closeLogBtn" class="btn btn-xs btn-default" style="display:none;">Close</button>
-                    <!--<button onclick="showIpDebug()">Show IP Debug</button>-->
                 </div>
 
             </div>
@@ -40,8 +38,6 @@
 
         <!-- MAIN CONTENT -->
         <div class="main-content">
-
-            <!-- ROW 1 -->
             <!-- ROW 1 -->
             <div class="flex-container space-evenly">
                 <div class="panel">
@@ -104,20 +100,7 @@
                     </p>
                 </div>
 
-                <!--<div class="panel">
-                    <form action="https://bcatp-mvc-bhg2adbhhechbsfx.canadacentral-01.azurewebsites.net/" target="_blank">
-                        <input type="submit" value="ASP.Net MVC" class="button-primary" />
-                    </form>
-                    <p>
-                        <br>
-                        ASP.NET Core MVC<br>
-                        JavaScript, HTML, C#<br>
-                        Bootstrap and CSS<br>
-                        Azure SQL DB<br>
-                        Google maps<br>
-                        Azure DevOps CD/CI<br><br>
-                    </p>
-                </div>-->
+
                 <div class="panel">
                     <br>
                     <form action="https://elevatorsim-hpesaxcdhaeafshg.canadacentral-01.azurewebsites.net/" target="_blank">
@@ -135,20 +118,6 @@
 
                     </p>
                 </div>
-
-                <!--<div class="panel">
-                    <form action="https://bcatp-htbec2bahehpeye0.canadacentral-01.azurewebsites.net/" target="_blank">
-                        <input type="submit" value="BCATP Web" class="button-primary" />
-                    </form>
-                    <p>
-                        <br>
-                        ASP.NET<br>
-                        JavaScript, CSS, C#<br>
-                        Azure SQL DB<br>
-                        Bootstrap<br>
-                        Azure DevOps CD/CI<br><br><br>
-                    </p>
-                </div>-->
             </div>
 
             <!-- ROW 2 -->
@@ -210,20 +179,6 @@
                         HTML/CSS<br><br><br><br><br>
                     </p>
                 </div>
-
-                <!--<div class="panel">
-                    <form action="https://carmaint-a2d4ghcxezd5ctfy.canadacentral-01.azurewebsites.net/" target="_blank">
-                        <input type="submit" value="Car Maint. MVC" class="button-primary" />
-                    </form>
-                    <p>
-                        <br>
-                        ASP.NET MVC Razor<br>
-                        JavaScript, CSS, HTML, C#<br>
-                        Azure SQL DB<br>
-                        Bootstrap<br>
-                        Azure DevOps CD/CI<br><br><br>
-                    </p>
-                </div>-->
             </div>
 
             <!-- Visitor Log -->
@@ -231,85 +186,90 @@
 
         </div>
     </div>
+
+
     <script>
-        async function checkOwner() {
-            const res = await fetch("/api/visitor/getcount");
-
-            if (res.ok) {
-                document.getElementById("ownerOnly").style.display = "inline-block";
-            }
-        }
-
-        checkOwner();
-    </script>
-    <script>
-        // Show owner-only UI
-        async function checkOwner() {
-            const res = await fetch("/api/visitor/getcount");
-
-            if (res.ok) {
-                document.getElementById("ownerOnly").style.display = "inline-block";
-            }
-        }
-
-        // Log visit
-        async function logVisit() {
-            try {
-                await fetch("/api/visitor/visit", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ owner: false })
-                });
-
-                const res = await fetch("/api/visitor/getcount");
-                const data = await res.json();
-
-                document.getElementById("visitCount").innerText = data.total;
-                document.getElementById("visitToday").innerText = data.today;
-            } catch (e) {
-                console.warn("Visit logging failed", e);
-            }
-        }
-
-        // Load visitor log (last 10 days)
-        async function loadLog() {
-            const res = await fetch("/api/visitor/visitlog");
-            if (!res.ok) return;
-
-            const logs = await res.json();
-
-            let html = `
-                            <table class="table table-bordered table-striped" style="font-size:13px;">
-                                <tr style="background:#f0f0f0; font-weight:bold;">
-                                    <th>ID</th>
-                                    <th>Timestamp (UTC)</th>
-                                    <th>IP</th>
-                                    <th>User Agent</th>
-                                    <th>Owner</th>
-                                    <th>Location</th>
-                                </tr>
-                        `;
-
-            logs.forEach(log => {
-                html += `
-                                <tr>
-                                    <td>${log.id}</td>
-                                    <td>${log.timestamp}</td>
-                                    <td>${log.ip}</td>
-                                    <td>${log.user_agent}</td>
-                                    <td>${log.is_owner}</td>
-                                    <td>${log.location}</td>
-                                </tr>
-                            `;
-            });
-
-            html += "</table>";
-
-            document.getElementById("visitorLog").innerHTML = html;
-        }
-
-        // Button handlers
         document.addEventListener("DOMContentLoaded", () => {
+
+            async function logVisit() {
+                try {
+                    await fetch("/api/visitor/visit", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ owner: false })
+                    });
+
+                    await loadCounts();
+                } catch (e) {
+                    console.warn("Visit logging failed", e);
+                }
+            }
+
+            async function loadCounts() {
+                try {
+                    const res = await fetch("/api/visitor/getcount");
+                    const data = await res.json();
+
+                    document.getElementById("visitCount").innerText = data.total;
+                    document.getElementById("visitToday").innerText = data.today;
+                } catch (e) {
+                    console.warn("Failed to load counts", e);
+                }
+            }
+
+            async function checkOwner() {
+                try {
+                    const res = await fetch("/api/visitor/isowner");
+                    const data = await res.json();
+
+                    if (data.isOwner === true) {
+                        document.getElementById("ownerOnly").style.display = "inline-block";
+                    }
+                } catch (e) {
+                    console.warn("Owner check failed", e);
+                }
+            } 
+
+            async function loadLog() {
+                try {
+                    const res = await fetch("/api/visitor/visitlog");
+                    if (!res.ok) return;
+
+                    const logs = await res.json();
+
+                    let html = `
+                    <table class="table table-bordered table-striped" style="font-size:13px;">
+                        <tr style="background:#f0f0f0; font-weight:bold;">
+                            <th>ID</th>
+                            <th>Timestamp</th>
+                            <th>IP</th>
+                            <th>User Agent</th>
+                            <th>Owner</th>
+                            <th>Location</th>
+                        </tr>
+                `;
+
+                    logs.forEach(log => {
+                        html += `
+                        <tr>
+                            <td>${log.id}</td>
+                            <td>${log.timestamp}</td>
+                            <td>${log.ip}</td>
+                            <td>${log.user_agent}</td>
+                            <td>${log.is_owner}</td>
+                            <td>${log.location}</td>
+                        </tr>
+                    `;
+                    });
+
+                    html += "</table>";
+
+                    document.getElementById("visitorLog").innerHTML = html;
+                } catch (e) {
+                    console.warn("Failed to load log", e);
+                }
+            }
+
             document.getElementById("showLogBtn").addEventListener("click", async () => {
                 await loadLog();
                 document.getElementById("visitorLog").style.display = "block";
@@ -320,26 +280,11 @@
                 document.getElementById("visitorLog").style.display = "none";
                 document.getElementById("closeLogBtn").style.display = "none";
             });
+
+            checkOwner();
+            logVisit();
         });
-
-        // Run on load
-        checkOwner();
-        logVisit();
     </script>
-    <!--<script>
-        function showIpDebug() {
-            fetch("/api/visitor/debug-ip")
-                .then(r => r.json())
-                .then(data => {
-                    alert(
-                        "REMOTE IP: " + data.remoteIp +
-                        "\nX-FORWARDED-FOR: " + data.forwardedFor
-                    );
-                });
-        }
-    </script>
-
-    <button onclick="showIpDebug()">Show IP Debug</button>-->
 
 
 </body>

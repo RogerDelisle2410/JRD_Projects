@@ -10,32 +10,17 @@ namespace JRD_Projects.Data
         {
         }
 
-        public DbSet<VisitorCount> VisitorCount { get; set; }
         public DbSet<VisitorLog> VisitorLog { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Map VisitorCount to existing BCATP table
-            modelBuilder.Entity<VisitorCount>().ToTable("VisitorCount");
-
-            modelBuilder.Entity<VisitorCount>(entity =>
-            {
-                entity.HasKey(e => e.Id);
-
-                entity.Property(e => e.count).HasColumnName("count");
-                entity.Property(e => e.today_visits).HasColumnName("today_visits");
-                entity.Property(e => e.last_visit).HasColumnName("last_visit");
-                entity.Property(e => e.last_ip).HasColumnName("last_ip");
-                entity.Property(e => e.last_user_agent).HasColumnName("last_user_agent");
-            });
-
-            // Map VisitorLog to existing BCATP table
             modelBuilder.Entity<VisitorLog>().ToTable("VisitorLog");
 
             modelBuilder.Entity<VisitorLog>(entity =>
             {
                 entity.HasKey(e => e.Id);
 
+                entity.Property(e => e.Id).HasColumnName("id");
                 entity.Property(e => e.Timestamp).HasColumnName("timestamp");
                 entity.Property(e => e.Ip).HasColumnName("ip");
                 entity.Property(e => e.UserAgent).HasColumnName("user_agent");
