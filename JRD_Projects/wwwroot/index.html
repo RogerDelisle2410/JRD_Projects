@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <p style="color:red; font-size:50px;">THIS IS THE REAL FILE</p>
 
     <div class="page-wrapper">
 
@@ -22,196 +23,214 @@
         <div class="header">
             <div class="title-main">Sample Projects of Roger Delisle</div>
             <div class="title-sub">JRD.Consulting@hotmail.com &nbsp;&nbsp; (403) 710-5817</div>
-
-            <!-- Visitor Counter -->
-            <!--<div style="margin-top:8px; font-size:14px; font-weight:bold;">
-                <div id="ownerOnly" style="display:none;">
-                    Visits (global): <span id="visitCount">...</span>
-                    &nbsp;&nbsp; Today: <span id="visitToday">...</span>
-                    &nbsp;&nbsp;
-                    <button id="showLogBtn" class="btn btn-xs btn-default">Show Log</button>
-                    <button id="closeLogBtn" class="btn btn-xs btn-default" style="display:none;">Close</button>
-                </div>
-            </div>-->
         </div>
 
         <!-- MAIN CONTENT -->
         <div class="main-content">
+
             <!-- ROW 1 -->
             <div class="flex-container space-evenly">
-                <div class="panel">
-                    <form action="https://docuchatpronet-a8hhhtbpgdcdehdv.canadacentral-01.azurewebsites.net/" target="_blank">
-                        <input type="submit" value="AI Docu Chat" class="button-primary" />
-                    </form>
-                    <p>
-                        <br>
-                        ASP.NET Core 8 Web API (C#)<br>
-                        SQLite + Entity Framework Core<br>
-                        JWT Authentication<br>
-                        TailwindCSS + JavaScript<br>
-                        Azure App Service<br>
-                        OpenAI GPT‑4o‑mini via REST API<br>
-                        Custom DocumentExtractor<br>
-                    </p>
-                </div>
-                <div class="panel">
-                    <form action="https://bcatp-angular-ajhaewb5a7aaf3fy.canadacentral-01.azurewebsites.net/" target="_blank">
-                        <input type="submit" value="Angular Project" class="button-primary" />
-                    </form>
-                    <p>
-                        <br>
-                        TypeScript, C#, HTML, CSS<br>
-                        JavaScript, Bootstrap<br>
-                        Azure SQL DB<br>
-                        Google agm-map<br>
-                        Azure DevOps CD/CI<br><br><br>
-                    </p>
-                </div>
-                <div class="panel">
-                    <br>
-                    <form action="https://deliverysimwasm-g2h6gpdsfnbmergp.canadacentral-01.azurewebsites.net/" target="_blank">
-                        <input type="submit" value="Delivery Simulation" class="button-primary" />
-                    </form>
-                    <p>
-                        <br>
-                        Blazor WebAssembly (.NET 8), C#<br>
-                        JavaScript, TypeScript, HTML, CSS<br>
-                        Google Maps JavaScript API<br>
-                        (Places, Directions, Geometry)<br>
-                        ASP.NET Core Web API on<br>
-                        Azure App Service - Devops CI/CD<br>
-                        Google Places Autocomplete &<br>
-                        Directions routing<br><br><br>
-                    </p>
-                </div>
-                <div class="panel">
-                    <form action="https://bcatp-api-gxaacbcxf5gpa0cm.canadacentral-01.azurewebsites.net/" target="_blank">
-                        <input type="submit" value="React Project" class="button-primary" />
-                    </form>
-                    <p>
-                        <br>
-                        TypeScript, JavaScript, C#, CSS<br>
-                        HTML, Shell<br>
-                        Bootstrap<br>
-                        Azure SQL DB<br>
-                        Google agm-map<br>
-                        Azure DevOps CD/CI<br><br>
-                    </p>
+
+                <!-- AI Docu Chat -->
+                <div class="project-card">
+                    <div class="panel">
+                        <form action="https://docuchatpronet-a8hhhtbpgdcdehdv.canadacentral-01.azurewebsites.net/" target="_blank">
+                            <input type="submit" value="AI Docu Chat" class="button-primary" onclick="trackClick('AI Docu Chat')" />
+                        </form>
+                        <p>
+                            <br>
+                            ASP.NET Core 8 Web API (C#)<br>
+                            SQLite + Entity Framework Core<br>
+                            JWT Authentication<br>
+                            TailwindCSS + JavaScript<br>
+                            Azure App Service<br>
+                            OpenAI GPT‑4o‑mini via REST API<br>
+                            Custom DocumentExtractor<br>
+                        </p>
+                    </div>
                 </div>
 
-
-                <div class="panel">
-                    <br>
-                    <form action="https://elevatorsim-hpesaxcdhaeafshg.canadacentral-01.azurewebsites.net/" target="_blank">
-                        <input type="submit" value="Elevator Simulator" class="button-primary" />
-                    </form>
-                    <p>
-                        <br>
-                        Blazor WebAssembly (.NET 8)<br>
-                        C#, JavaScript, HTML, CSS<br>
-                        Custom high‑rise elevator logic<br>
-                        (zones, shuttles, sky lobbies)<br>
-                        Real‑time floor‑by‑floor animation + UI state engine<br>
-                        Azure App Service hosting<br>
-                        Azure DevOps CD/CI<br>
-
-                    </p>
+                <!-- Angular -->
+                <div class="project-card">
+                    <div class="panel">
+                        <form action="https://bcatp-angular-ajhaewb5a7aaf3fy.canadacentral-01.azurewebsites.net/" target="_blank">
+                            <input type="submit" value="Angular Project" class="button-primary" onclick="trackClick('Angular')" />
+                        </form>
+                        <p>
+                            <br>
+                            TypeScript, C#, HTML, CSS<br>
+                            JavaScript, Bootstrap<br>
+                            Azure SQL DB<br>
+                            Google agm-map<br>
+                            Azure DevOps CD/CI<br><br><br>
+                        </p>
+                    </div>
                 </div>
-            </div>
 
+                <!-- Delivery Simulation -->
+                <div class="project-card">
+                    <div class="panel">
+                        <form action="https://deliverysimwasm-g2h6gpdsfnbmergp.canadacentral-01.azurewebsites.net/" target="_blank">
+                            <input type="submit" value="Delivery Simulation" class="button-primary" onclick="trackClick('Delivery Simulation')" />
+                        </form>
+                        <p>
+                            <br>
+                            Blazor WebAssembly (.NET 8), C#<br>
+                            JavaScript, TypeScript, HTML, CSS<br>
+                            Google Maps JavaScript API<br>
+                            (Places, Directions, Geometry)<br>
+                            ASP.NET Core Web API on Azure<br>
+                            DevOps CI/CD<br>
+                            Google Places Autocomplete & Directions<br>  
+                        </p>
+                    </div>
+                </div>
+
+                <!-- React -->
+                <div class="project-card">
+                    <div class="panel">
+                        <form action="https://bcatp-api-gxaacbcxf5gpa0cm.canadacentral-01.azurewebsites.net/" target="_blank">
+                            <input type="submit" value="React Project" class="button-primary" onclick="trackClick('React')" />
+                        </form>
+                        <p>
+                            <br>
+                            TypeScript, JavaScript, C#, CSS<br>
+                            HTML, Shell<br>
+                            Bootstrap<br>
+                            Azure SQL DB<br>
+                            Azure DevOps CD/CI<br><br><br>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Elevator Simulator -->
+                <div class="project-card">
+                    <div class="panel">
+                        <form action="https://elevatorsim-hpesaxcdhaeafshg.canadacentral-01.azurewebsites.net/" target="_blank">
+                            <input type="submit" value="Elevator Simulator" class="button-primary" onclick="trackClick('Elevator Simulator')" />
+                        </form>
+                        <p>
+                            <br>
+                            Blazor WebAssembly (.NET 8)<br>
+                            C#, JavaScript, HTML, CSS<br>
+                            Custom high‑rise elevator logic<br>
+                            Real‑time animation + UI engine<br>
+                            Azure App Service hosting<br>
+                            Azure DevOps CD/CI<br><br>
+                        </p>
+                    </div>
+                </div>
+
+            </div> <!-- end row 1 -->
             <!-- ROW 2 -->
             <div class="flex-container space-evenly">
-                <div class="panel">
-                    <form action="https://subwaysim-hchdevbjc3fqbpbf.canadacentral-01.azurewebsites.net/" target="_blank">
-                        <input type="submit" value="Subway Simulator" class="button-primary" />
-                    </form>
-                    <p>
-                        <br>
-                        Blazor WebAssembly (.NET 8)<br>
-                        C#, JavaScript, HTML, CSS<br>
-                        Custom map rendering + geometry engine<br>
-                        Train movement, dwell time, acceleration logic<br>
-                        Azure App Service hosting<br>
-                        Real‑time simulation with JS interop<br>
-                        Azure DevOps CD/CI<br>
 
-                    </p>
-                </div>
-                <div class="panel">
-                    <form action="https://bcatp-python-gxepcqa3d5crbchn.canadacentral-01.azurewebsites.net/" target="_blank">
-                        <input type="submit" value="Python Projet" class="button-primary" />
-                    </form>
-                    <p>
-                        <br>
-                        Python (Flask)<br>
-                        HTML, CSS, JavaScript<br>
-                        Jinja templates<br>
-                        SQLite<br>
-                        Azure App Service<br>
-                        Azure DevOps CD/CI <br><br>
-                    </p>
+                <!-- Subway Simulator -->
+                <div class="project-card">
+                    <div class="panel">
+                        <form action="https://subwaysim-hchdevbjc3fqbpbf.canadacentral-01.azurewebsites.net/" target="_blank">
+                            <input type="submit" value="Subway Simulator" class="button-primary" onclick="trackClick('Subway Simulator')" />
+                        </form>
+                        <p>
+                            <br>
+                            Blazor WebAssembly (.NET 8)<br>
+                            C#, JavaScript, HTML, CSS<br>
+                            Custom map rendering + geometry engine<br>
+                            Train movement, dwell time, acceleration logic<br>
+                            Azure App Service hosting<br>
+                            Real‑time simulation with JS interop<br>
+                            Azure DevOps CD/CI<br>
+                        </p>
+                    </div>
                 </div>
 
-                <div class="panel">
-                    <form action="https://puzzle-javascript-bpdafjbkgxapbsd9.canadacentral-01.azurewebsites.net/" target="_blank">
-                        <input type="submit" value="JavaScript Puzzle" class="button-primary" />
-                    </form>
-                    <p>
-                        <br>
-                        ASP.NET WebForms<br>
-                        HTML5, CSS, JavaScript<br>
-                        jQuery, Bootstrap (CSS + JS)<br>
-                        Canvas API (2D)<br>
-                        browser localStorage<br>
-                        Image assets (PNG/BMP)<br><br>
-                    </p>
+                <!-- Python Project -->
+                <div class="project-card">
+                    <div class="panel">
+                        <form action="https://bcatp-python-gxepcqa3d5crbchn.canadacentral-01.azurewebsites.net/" target="_blank">
+                            <input type="submit" value="Python Project" class="button-primary" onclick="trackClick('Python Project')" />
+                        </form>
+                        <p>
+                            <br>
+                            Python (Flask)<br>
+                            HTML, CSS, JavaScript<br>
+                            Jinja templates<br>
+                            SQLite<br>
+                            Azure App Service<br>
+                            Azure DevOps CD/CI<br><br>
+                        </p>
+                    </div>
                 </div>
 
-                <div class="panel">
-                    <form action="https://battleships-awegbgdeerguffhp.canadacentral-01.azurewebsites.net/" target="_blank">
-                        <input type="submit" value="BattleShips" class="button-primary" />
-                    </form>
-                    <p>
-                        <br>
-                        ASP.NET Web Forms, C# <br>
-                        Bootstrap, jQuery<br>
-                        HTML/CSS<br><br><br><br><br>
-                    </p>
+                <!-- JavaScript Puzzle -->
+                <div class="project-card">
+                    <div class="panel">
+                        <form action="https://puzzle-javascript-bpdafjbkgxapbsd9.canadacentral-01.azurewebsites.net/" target="_blank">
+                            <input type="submit" value="JavaScript Puzzle" class="button-primary" onclick="trackClick('JavaScript Puzzle')" />
+                        </form>
+                        <p>
+                            <br>
+                            ASP.NET WebForms<br>
+                            HTML5, CSS, JavaScript<br>
+                            jQuery, Bootstrap<br>
+                            Canvas API (2D)<br>
+                            browser localStorage<br>
+                            Image assets (PNG/BMP)<br><br>
+                        </p>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Visitor Log -->
-            <div id="visitorLog" style="display:none; margin:15px; max-height:350px; overflow-y:auto; border:1px solid #ccc; background:white;"></div>
-
-        </div>
-    </div>
-
-
+                <!-- BattleShips -->
+                <div class="project-card">
+                    <div class="panel">
+                        <form action="https://battleships-awegbgdeerguffhp.canadacentral-01.azurewebsites.net/" target="_blank">
+                            <input type="submit" value="BattleShips" class="button-primary" onclick="trackClick('BattleShips')" />
+                        </form>
+                        <p>
+                            <br>
+                            ASP.NET Web Forms, C#<br>
+                            Bootstrap, jQuery<br>
+                            HTML/CSS<br><br><br><br><br>
+                        </p>
+                    </div>
+                </div>
+            </div> <!-- end row 2 -->
+        </div> <!-- end main-content -->
+    </div> <!-- end page-wrapper -->
+    <!-- JAVASCRIPT -->
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
+        document.addEventListener("DOMContentLoaded", async () => { 
+            try {
+                const res = await fetch("/api/visitor/visit", {
+                    method: "POST"
+                });
 
-            const API = window.location.hostname.includes("azurewebsites.net")
-                ? "https://jrd-projects-hdawd5crfdatfudg.canadacentral-01.azurewebsites.net"
-                : "https://localhost:7160";
-
-            async function logVisit() {
-                try {
-                    await fetch(`${API}/api/visitor/visit`, {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ owner: false })
-                    });
-
-                    /*await loadCounts();*/
-                } catch (e) {
-                    console.warn("Visit logging failed", e);
+                const data = await res.json();
+                if (data.visitorId) {
+                    localStorage.setItem("visitorId", data.visitorId);
                 }
-            } 
 
-            logVisit();
+            } catch (e) {
+                console.warn("Visit logging failed", e);
+            }
         });
+
+        async function trackClick(projectName) { 
+            event.stopPropagation();
+
+            const visitorId = localStorage.getItem("visitorId");
+
+            if (!visitorId) return;
+            await fetch("/api/visitor/logClick", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    visitorId: parseInt(visitorId),
+                    project: projectName
+                })
+            });
+        }
     </script>
-     
 
 </body>
 </html>
