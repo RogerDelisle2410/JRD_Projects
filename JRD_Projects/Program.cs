@@ -14,7 +14,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
 builder.Services.Configure<EmailSettings>(
     builder.Configuration.GetSection("Email"));
-builder.Services.AddTransient<EmailService>(); 
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddTransient<EmailService>();
 
 var app = builder.Build();
 
