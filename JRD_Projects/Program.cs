@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.HttpOverrides;
 using JRD_Projects.Services;
+using JRD_Projects.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 

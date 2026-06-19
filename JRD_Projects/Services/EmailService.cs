@@ -4,6 +4,7 @@
     using System.Net;
     using System.Net.Mail;
     using Microsoft.AspNetCore.Http;
+    using JRD_Projects.Models;
 
     public class EmailService
     {

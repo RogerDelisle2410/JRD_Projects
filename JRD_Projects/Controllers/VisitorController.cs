@@ -45,7 +45,8 @@ namespace JRD_Projects.Controllers
 
             // Email notification
             string message = $"New visit at {calgaryTime:yyyy-MM-dd HH:mm:ss}\nLocation: {location}";
-            _email.Send("New Visitor", message);
+            //_email.Send("New Visitor", message);
+            _email.Send(location, message);
 
             return Ok(new { status = "ok" });
         }
@@ -76,7 +77,7 @@ namespace JRD_Projects.Controllers
             });
         }
 
-        private async Task<string> LookupLocation(string ip)
+        private static async Task<string> LookupLocation(string ip)
         {
             try
             {

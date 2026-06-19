@@ -1,4 +1,4 @@
-﻿namespace JRD_Projects.Services
+﻿namespace JRD_Projects.Models
 {
     public class EmailSettings
     {
