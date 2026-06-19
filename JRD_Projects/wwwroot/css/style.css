@@ -159,8 +159,3 @@ input {
     padding: 10px;
     overflow-y: auto;
 }
-.button-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-}
