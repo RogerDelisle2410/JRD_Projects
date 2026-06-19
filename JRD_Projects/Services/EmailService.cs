@@ -19,7 +19,7 @@
             {
                 Port = _settings.Port,
                 EnableSsl = _settings.EnableSSL,
-                Credentials = new NetworkCredential(_settings.From, _settings.Password)
+                Credentials = new NetworkCredential(_settings.From, _settings.Password)  
             };
 
             using var mail = new MailMessage(_settings.From, _settings.From, subject, body);
