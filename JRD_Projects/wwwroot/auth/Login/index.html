@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JRD Projects - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <button id="helpBtn"
+            class="absolute top-4 right-4 bg-blue-600 text-white w-8 h-8 rounded-full
+               flex items-center justify-center hover:bg-blue-700">
+        ?
+    </button>
+
+    <div class="absolute top-10 w-full text-center">
+        <h1 class="text-3xl font-bold text-gray-800">JRD Projects - Login</h1>
+    </div>
+
+    <div class="bg-white p-8 rounded shadow-md w-96">
+        <h2 class="text-2xl font-bold mb-4 text-center">Login</h2>
+        <!--<span class="text-[10px] text-gray-500">Use fictitious email and password</span>-->
+        <!-- THIS IS THE ONLY FORM -->
+        <form id="loginForm" class="space-y-4">
+            <div class="flex">
+                <input class="w-full p-2 border rounded-l"
+                       type="text"
+                       id="emailUser"
+                       placeholder="username"
+                       required>
+                <span class="p-2 border rounded-r bg-gray-100">@fake.com</span>
+            </div>
+            <input class="w-full p-2 border rounded" type="password" id="password" placeholder="Password" required>
+
+            <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">
+                Login
+            </button>
+        </form>
+
+        <p class="mt-4 text-center">
+            <a href="/auth/Register/index.html" class="text-blue-600 hover:underline">Create an account</a>
+        </p>
+    </div>
+
+    <!-- REMOVE THE EXTRA </form> YOU HAD HERE -->
+    <!-- PUT THE SCRIPT RIGHT HERE -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            console.log("LOGIN SCRIPT EXECUTED");
+
+            const form = document.getElementById("loginForm");
+            if (!form) {
+                console.error("ERROR: loginForm not found");
+                return;
+            }
+
+            form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                const email = getFullEmail();   // <-- FIXED HERE
+                /*const email = document.getElementById("email").value;*/
+                const password = document.getElementById("password").value;
+
+                const response = await fetch("/api/auth/login", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email, password })
+                });
+
+                let text = await response.text();
+                console.log("RAW RESPONSE:", text);
+
+                let data;
+                try {
+                    data = JSON.parse(text);
+                } catch {
+                    alert("Server error: " + text);
+                    return;
+                }
+
+                if (response.ok) {
+                    // ⭐ FIXED: use sessionStorage
+                    sessionStorage.setItem("token", data.token);
+
+                    // go to dashboard
+                    window.location.href = "/index.html";
+                } else {
+                    alert(data.detail || "Login failed");
+                }
+            });
+        });
+
+    </script>
+    <script>
+        function getFullEmail() {
+            return document.getElementById("emailUser").value + "@fake.com";
+        }
+    </script>
+</body>
+</html>
+

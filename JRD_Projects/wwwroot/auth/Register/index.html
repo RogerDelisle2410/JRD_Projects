@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JRD Projects - Register</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+    <div class="absolute top-10 w-full text-center">
+        <h1 class="text-3xl font-bold text-gray-800">JRD Projects - Create Account</h1>
+    </div>
+
+    <div class="bg-white p-8 rounded shadow-md w-96">
+        <h2 class="text-2xl font-bold mb-4 text-center">Register</h2>
+        <span class="text-[12px] text-gray-500">Use fictitious email and password</span>
+
+        <form id="registerForm" class="space-y-4"> 
+            <div class="flex">
+                <input class="w-full p-2 border rounded-l"
+                       type="text"
+                       id="emailUser"
+                       placeholder="username"
+                       required>
+                <span class="p-2 border rounded-r bg-gray-100">@fake.com</span>
+            </div>
+
+            <input class="w-full p-2 border rounded" type="password" id="password" placeholder="Password" required>
+
+            <input class="w-full p-2 border rounded" type="password" id="confirmPassword" placeholder="Confirm Password" required>
+
+            <!-- Toggle FIRST so it never disappears -->
+            <label class="flex items-center space-x-2 text-sm text-gray-600">
+                <input type="checkbox" id="togglePassword" class="h-4 w-4">
+                <span>Show password</span>
+            </label>
+
+            <!-- Message BELOW toggle, with fixed height -->
+            <p id="passwordMatchMsg" class="text-sm mt-1 h-5"></p>
+
+            <button type="submit" class="w-full bg-green-600 text-white p-2 rounded hover:bg-green-700">
+                Create Account
+            </button>
+        </form>
+
+        <p class="mt-4 text-center">
+            <a href="/auth/Login/index.html" class="text-blue-600 hover:underline">Back to Login</a>
+        </p>
+    </div>
+
+    <script>
+        const password = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirmPassword");
+        const msg = document.getElementById("passwordMatchMsg");
+        const form = document.getElementById("registerForm");
+        const toggle = document.getElementById("togglePassword");
+        const createBtn = form.querySelector("button[type='submit']");
+
+        // Disable button by default
+        createBtn.disabled = true;
+        createBtn.classList.add("opacity-50", "cursor-not-allowed");
+
+        // Show/hide password
+        toggle.addEventListener("change", function () {
+            const show = this.checked;
+            password.type = show ? "text" : "password";
+            confirmPassword.type = show ? "text" : "password";
+        });
+
+        // Live password match check
+        function checkMatch() {
+            if (confirmPassword.value.length === 0) {
+                msg.textContent = "";
+                msg.className = "text-sm mt-1 h-5";
+                createBtn.disabled = true;
+                createBtn.classList.add("opacity-50", "cursor-not-allowed");
+                return;
+            }
+
+            if (password.value === confirmPassword.value) {
+                msg.textContent = "Passwords match ✓";
+                msg.className = "text-green-600 text-sm mt-1 h-5";
+                createBtn.disabled = false;
+                createBtn.classList.remove("opacity-50", "cursor-not-allowed");
+            } else {
+                msg.textContent = "Passwords do not match ✗";
+                msg.className = "text-red-600 text-sm mt-1 h-5";
+                createBtn.disabled = true;
+                createBtn.classList.add("opacity-50", "cursor-not-allowed");
+            }
+        }
+
+        password.addEventListener("input", checkMatch);
+        confirmPassword.addEventListener("input", checkMatch);
+
+        // SINGLE submit handler (clean)
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            // Final safety check
+            if (password.value !== confirmPassword.value) {
+                msg.textContent = "Passwords do not match ✗";
+                msg.className = "text-red-600 text-sm mt-1 h-5";
+                return;
+            }
+
+            const email = getFullEmail();   // <-- FIXED HERE
+
+            const response = await fetch("/api/auth/register", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, password: password.value })
+            });
+
+            let text = await response.text();
+            console.log("RAW REGISTER RESPONSE:", text);
+
+            let data;
+            try {
+                data = JSON.parse(text);
+            } catch {
+                alert("Server error: " + text);
+                return;
+            }
+
+            if (response.ok) {
+                alert("Account created successfully. Please log in.");
+                window.location.href = "/auth/Login/index.html";
+            } else {
+                alert(data.detail || "Registration failed");
+            }
+        });
+
+    </script>
+    <!-- your HTML form here -->
+
+    <script>
+        function getFullEmail() {
+            return document.getElementById("emailUser").value + "@fake.com";
+        }
+    </script>
+
+    <style>
+        input[type="password"]::-webkit-textfield-decoration-container,
+        input[type="password"]::-webkit-credentials-auto-fill-button,
+        input[type="password"]::-ms-reveal {
+            display: none !important;
+        }
+    </style>
+
+</body>
+</html> 
