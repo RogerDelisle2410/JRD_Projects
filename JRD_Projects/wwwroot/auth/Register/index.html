@@ -17,7 +17,7 @@
         <h2 class="text-2xl font-bold mb-4 text-center">Register</h2>
         <span class="text-[12px] text-gray-500">Use fictitious email and password</span>
 
-        <form id="registerForm" class="space-y-4"> 
+        <form id="registerForm" class="space-y-4">
             <div class="flex">
                 <input class="w-full p-2 border rounded-l"
                        type="text"
@@ -26,18 +26,17 @@
                        required>
                 <span class="p-2 border rounded-r bg-gray-100">@fake.com</span>
             </div>
+            <p id="emailMsg" class="text-sm h-5 mt-1"></p>
+
 
             <input class="w-full p-2 border rounded" type="password" id="password" placeholder="Password" required>
-
             <input class="w-full p-2 border rounded" type="password" id="confirmPassword" placeholder="Confirm Password" required>
 
-            <!-- Toggle FIRST so it never disappears -->
             <label class="flex items-center space-x-2 text-sm text-gray-600">
                 <input type="checkbox" id="togglePassword" class="h-4 w-4">
                 <span>Show password</span>
             </label>
 
-            <!-- Message BELOW toggle, with fixed height -->
             <p id="passwordMatchMsg" class="text-sm mt-1 h-5"></p>
 
             <button type="submit" class="w-full bg-green-600 text-white p-2 rounded hover:bg-green-700">
@@ -51,6 +50,7 @@
     </div>
 
     <script>
+        const emailUser = document.getElementById("emailUser");
         const password = document.getElementById("password");
         const confirmPassword = document.getElementById("confirmPassword");
         const msg = document.getElementById("passwordMatchMsg");
@@ -59,8 +59,66 @@
         const createBtn = form.querySelector("button[type='submit']");
 
         // Disable button by default
-        createBtn.disabled = true;
-        createBtn.classList.add("opacity-50", "cursor-not-allowed");
+        disableButton();
+
+        function disableButton() {
+            createBtn.disabled = true;
+            createBtn.classList.add("opacity-50", "cursor-not-allowed");
+        }
+
+        function enableButton() {
+            createBtn.disabled = false;
+            createBtn.classList.remove("opacity-50", "cursor-not-allowed");
+        }
+
+        // Username validation
+        function isValidUsername(username) {
+            return /^[A-Za-z0-9._-]+$/.test(username);
+        }
+
+        // Combined validation for everything
+        const emailMsg = document.getElementById("emailMsg");
+
+        function validateAll() {
+            const user = emailUser.value.trim();
+            const passMatch = password.value === confirmPassword.value && password.value.length > 0;
+
+            // Username message
+            if (user.length === 0) {
+                emailMsg.textContent = "";
+                emailMsg.className = "text-sm h-5 mt-1";
+            } else if (!isValidUsername(user)) {
+                emailMsg.textContent = "Invalid username — do not include @ or special characters.";
+                emailMsg.className = "text-red-600 text-sm h-5 mt-1";
+            } else {
+                emailMsg.textContent = "Valid username ✓";
+                emailMsg.className = "text-green-600 text-sm h-5 mt-1";
+            }
+
+            // Password message
+            if (confirmPassword.value.length === 0) {
+                msg.textContent = "";
+                msg.className = "text-sm mt-1 h-5";
+            } else if (passMatch) {
+                msg.textContent = "Passwords match ✓";
+                msg.className = "text-green-600 text-sm mt-1 h-5";
+            } else {
+                msg.textContent = "Passwords do not match ✗";
+                msg.className = "text-red-600 text-sm mt-1 h-5";
+            }
+
+            // Button logic
+            if (!isValidUsername(user) || !passMatch) {
+                disableButton();
+            } else {
+                enableButton();
+            }
+        }
+
+
+        emailUser.addEventListener("input", validateAll);
+        password.addEventListener("input", validateAll);
+        confirmPassword.addEventListener("input", validateAll);
 
         // Show/hide password
         toggle.addEventListener("change", function () {
@@ -69,44 +127,21 @@
             confirmPassword.type = show ? "text" : "password";
         });
 
-        // Live password match check
-        function checkMatch() {
-            if (confirmPassword.value.length === 0) {
-                msg.textContent = "";
-                msg.className = "text-sm mt-1 h-5";
-                createBtn.disabled = true;
-                createBtn.classList.add("opacity-50", "cursor-not-allowed");
-                return;
-            }
-
-            if (password.value === confirmPassword.value) {
-                msg.textContent = "Passwords match ✓";
-                msg.className = "text-green-600 text-sm mt-1 h-5";
-                createBtn.disabled = false;
-                createBtn.classList.remove("opacity-50", "cursor-not-allowed");
-            } else {
-                msg.textContent = "Passwords do not match ✗";
-                msg.className = "text-red-600 text-sm mt-1 h-5";
-                createBtn.disabled = true;
-                createBtn.classList.add("opacity-50", "cursor-not-allowed");
-            }
+        function getFullEmail() {
+            const user = emailUser.value.trim();
+            if (!isValidUsername(user)) return null;
+            return user + "@fake.com";
         }
 
-        password.addEventListener("input", checkMatch);
-        confirmPassword.addEventListener("input", checkMatch);
-
-        // SINGLE submit handler (clean)
+        // Submit handler
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
 
-            // Final safety check
-            if (password.value !== confirmPassword.value) {
-                msg.textContent = "Passwords do not match ✗";
-                msg.className = "text-red-600 text-sm mt-1 h-5";
+            const email = getFullEmail();
+            if (!email) {
+                alert("Invalid username.");
                 return;
             }
-
-            const email = getFullEmail();   // <-- FIXED HERE
 
             const response = await fetch("/api/auth/register", {
                 method: "POST",
@@ -133,13 +168,6 @@
             }
         });
 
-    </script>
-    <!-- your HTML form here -->
-
-    <script>
-        function getFullEmail() {
-            return document.getElementById("emailUser").value + "@fake.com";
-        }
     </script>
 
     <style>
