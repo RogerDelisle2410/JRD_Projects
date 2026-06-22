@@ -33,7 +33,7 @@
         <!-- HEADER -->
         <div class="header">
             <div class="title-main">Sample Projects of Roger Delisle</div>
-            <div class="title-sub">JRD.Consulting@hotmail.com &nbsp;&nbsp; (403) 710-5817</div>
+            <!--<div class="title-sub">JRD.Consulting@hotmail.com &nbsp;&nbsp; (403) 710-5817</div>-->
         </div>
 
         <!-- MAIN CONTENT -->
@@ -45,11 +45,19 @@
                 <!-- AI Docu Chat -->
                 <div class="project-card">
                     <div class="panel">
+                        <button class="help-icon" type="button" onclick="toggleHelp(this)">
+                            ?
+                        </button>
+
+                        <!-- Help popup -->
+                        <div class="help-popup">
+                            This app lets you upload a document or image, and let you ask questions about it.
+                        </div>
                         <form action="https://docuchatpronet-a8hhhtbpgdcdehdv.canadacentral-01.azurewebsites.net/" target="_blank">
                             <input type="submit" value="AI Docu Chat" class="button-primary" onclick="trackClick('AI Docu Chat')" />
                         </form>
-                        <p>
-                            <br>
+                        <br />
+                        <p class="mt-3">
                             ASP.NET Core 8 Web API (C#)<br>
                             SQLite + Entity Framework Core<br>
                             JWT Authentication<br>
@@ -64,8 +72,17 @@
                 <!-- Delivery Simulation -->
                 <div class="project-card">
                     <div class="panel">
+                        <button class="help-icon" type="button" onclick="toggleHelp(this)">
+                            ?
+                        </button>
+
+                        <!-- Help popup -->
+                        <div class="help-popup">
+                            An app that simulates and visualizes delivery routes, vehicles, and their operations for testing and analysis.
+
+                        </div>
                         <form action="https://deliverysimwasm-g2h6gpdsfnbmergp.canadacentral-01.azurewebsites.net/" target="_blank">
-                            <input type="submit" value="Delivery Simulation" class="button-primary" onclick="trackClick('Delivery Simulation')" />
+                            <input type="submit" value="Delivery Simulator" class="button-primary" onclick="trackClick('Delivery Simulation')" />
                         </form>
                         <p>
                             <br>
@@ -73,8 +90,8 @@
                             JavaScript, TypeScript, HTML, CSS<br>
                             Google Maps JavaScript API<br>
                             ASP.NET Core Web API on Azure<br>
-                            DevOps CI/CD<br>
-                            Google Places Autocomplete & Directions<br>
+                            Azure DevOps CI/CD<br>
+                            Google Places Autocomplete & Directions<br> <br>
                         </p>
                     </div>
                 </div>
@@ -82,6 +99,14 @@
                 <!-- Angular -->
                 <div class="project-card">
                     <div class="panel">
+                        <button class="help-icon" type="button" onclick="toggleHelp(this)">
+                            ?
+                        </button>
+
+                        <!-- Help popup -->
+                        <div class="help-popup">
+                            Provides CRUD access and a user interface for multiple military site datasets (Bcatp, Navy, Dewline, etc.).
+                        </div>
                         <form action="https://bcatp-angular-ajhaewb5a7aaf3fy.canadacentral-01.azurewebsites.net/" target="_blank">
                             <input type="submit" value="Angular Project" class="button-primary" onclick="trackClick('Angular')" />
                         </form>
@@ -99,6 +124,14 @@
                 <!-- React -->
                 <div class="project-card">
                     <div class="panel">
+                        <button class="help-icon" type="button" onclick="toggleHelp(this)">
+                            ?
+                        </button>
+
+                        <!-- Help popup -->
+                        <div class="help-popup">
+                            Provides a web interface for accessing multiple military site datasets (Bcatp, Navy, Dewline, etc.).
+                        </div>
                         <form action="https://bcatp-api-gxaacbcxf5gpa0cm.canadacentral-01.azurewebsites.net/" target="_blank">
                             <input type="submit" value="React Project" class="button-primary" onclick="trackClick('React')" />
                         </form>
@@ -116,6 +149,14 @@
                 <!-- Elevator Simulator -->
                 <div class="project-card">
                     <div class="panel">
+                        <button class="help-icon" type="button" onclick="toggleHelp(this)">
+                            ?
+                        </button>
+
+                        <!-- Help popup -->
+                        <div class="help-popup">
+                            Simulates elevator trips in a tower where you choose a starting floor and a destination and watch the elevators operate.
+                        </div>
                         <form action="https://elevatorsim-hpesaxcdhaeafshg.canadacentral-01.azurewebsites.net/" target="_blank">
                             <input type="submit" value="Elevator Simulator" class="button-primary" onclick="trackClick('Elevator Simulator')" />
                         </form>
@@ -142,6 +183,14 @@
                 <!-- Subway Simulator -->
                 <div class="project-card">
                     <div class="panel">
+                        <button class="help-icon" type="button" onclick="toggleHelp(this)">
+                            ?
+                        </button>
+
+                        <!-- Help popup -->
+                        <div class="help-popup">
+                            Simulates subway system operations — modeling trains, stations, routes, and schedules in an interactive simulation.
+                        </div>
                         <form action="https://subwaysim-hchdevbjc3fqbpbf.canadacentral-01.azurewebsites.net/" target="_blank">
                             <input type="submit" value="Subway Simulator" class="button-primary" onclick="trackClick('Subway Simulator')" />
                         </form>
@@ -150,7 +199,7 @@
                             Blazor WebAssembly (.NET 8)<br>
                             C#, JavaScript, HTML, CSS<br>
                             Custom map rendering + geometry engine<br>
-                            Train movement, dwell time, acceleration logic<br>
+                            Train movement, dwell time, accel. logic<br>
                             Azure App Service hosting<br>
                             Real‑time simulation with JS interop<br>
                             Azure DevOps CD/CI
@@ -161,6 +210,14 @@
                 <!-- Python Project -->
                 <div class="project-card">
                     <div class="panel">
+                        <button class="help-icon" type="button" onclick="toggleHelp(this)">
+                            ?
+                        </button>
+
+                        <!-- Help popup -->
+                        <div class="help-popup">
+                            A web application for managing and searching multiple historical military datasets.
+                        </div>
                         <form action="https://bcatp-python-gxepcqa3d5crbchn.canadacentral-01.azurewebsites.net/" target="_blank">
                             <input type="submit" value="Python Project" class="button-primary" onclick="trackClick('Python Project')" />
                         </form>
@@ -179,6 +236,14 @@
                 <!-- JavaScript Puzzle -->
                 <div class="project-card">
                     <div class="panel">
+                        <button class="help-icon" type="button" onclick="toggleHelp(this)">
+                            ?
+                        </button>
+
+                        <!-- Help popup -->
+                        <div class="help-popup">
+                            A sliding-tile puzzle where you rearrange and flip image pieces to restore the original can picture.
+                        </div>
                         <form action="https://puzzle-javascript-bpdafjbkgxapbsd9.canadacentral-01.azurewebsites.net/" target="_blank">
                             <input type="submit" value="JavaScript Puzzle" class="button-primary" onclick="trackClick('JavaScript Puzzle')" />
                         </form>
@@ -197,6 +262,14 @@
                 <!-- BattleShips -->
                 <div class="project-card">
                     <div class="panel">
+                        <button class="help-icon" type="button" onclick="toggleHelp(this)">
+                            ?
+                        </button>
+
+                        <!-- Help popup -->
+                        <div class="help-popup">
+                            A two-player, space-themed Battleship game where players take turns firing at each other's hidden grids to locate and destroy spaceships.
+                        </div>
                         <form action="https://battleships-awegbgdeerguffhp.canadacentral-01.azurewebsites.net/" target="_blank">
                             <input type="submit" value="BattleShips" class="button-primary" onclick="trackClick('BattleShips')" />
                         </form>
@@ -241,6 +314,78 @@
             });
         }
     </script>
+    <script>
+        function toggleHelp(btn) {
+            const panel = btn.closest('.panel');
+            const popup = panel.querySelector('.help-popup');
+            const isVisible = popup.style.display === 'block';
+
+            // hide all other popups
+            document.querySelectorAll('.help-popup').forEach(p => p.style.display = 'none');
+
+            // toggle this one
+            popup.style.display = isVisible ? 'none' : 'block';
+        }
+
+        // optional: click outside to close
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.panel')) {
+                document.querySelectorAll('.help-popup').forEach(p => p.style.display = 'none');
+            }
+        });
+    </script>
+    <footer class="rd-footer">
+        <div class="rd-footer-content">
+
+            <div class="rd-footer-left">
+                <div class="rd-footer-title">Contact</div>
+                <div class="rd-footer-item">
+                    📧 <a href="mailto:JRD.Consulting@hotmail.com">JRD.Consulting@hotmail.com</a>
+                </div>
+                <div class="rd-footer-item">
+                    📞 <a href="tel:4037105817">(403) 710‑5817</a>
+                </div>
+            </div>
+
+            <div class="rd-footer-right">
+
+                <a class="rd-footer-icon"
+                   href="https://www.linkedin.com/in/rogerdelisle/"
+                   target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="22" height="22"
+                         viewBox="0 0 24 24"
+                         fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5
+                     5v14c0 2.761 2.239 5 5 5h14c2.761
+                     0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11
+                     19h-3v-10h3v10zm-1.5-11.268c-.966
+                     0-1.75-.79-1.75-1.764s.784-1.764
+                     1.75-1.764 1.75.79 1.75
+                     1.764-.784 1.764-1.75
+                     1.764zm13.5 11.268h-3v-5.604c0-1.337-.027-3.059-1.865-3.059-1.865
+                     0-2.151 1.459-2.151 2.968v5.695h-3v-10h2.881v1.367h.041c.401-.761
+                     1.379-1.562 2.838-1.562 3.034 0 3.594 2.017
+                     3.594 4.639v5.556z" />
+                    </svg>
+                </a>
+
+                <a class="rd-footer-button"
+                   href="/Assets/Resume/Resume%20of%20Roger%20J%20Delisle.pdf"
+                   target="_blank">
+                    📄 Download Resume
+                </a>
+
+            </div>
+
+
+        </div>
+
+        <div class="rd-footer-bottom">
+            © 2026 Roger J. Delisle — All Rights Reserved
+        </div>
+    </footer>
+
 
 </body>
 </html>
