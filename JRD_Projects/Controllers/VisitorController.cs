@@ -28,13 +28,10 @@ namespace JRD_Projects.Controllers
             public string? Email { get; set; }
         }
 
-        // ⭐ LOG VISIT — SIMPLE, CLEAN, RELIABLE
+        // ⭐ LOG VISIT — SIMPLE, CLEAN, RELIABLE 
         [HttpPost("visit")]
         public async Task<IActionResult> Visit([FromBody] VisitDto dto)
         {
-            Console.WriteLine("VISIT HIT");
-            Console.WriteLine("Email from client: " + dto.Email);
-
             string? ip = HttpContext.Connection.RemoteIpAddress?.ToString();
             if (string.IsNullOrWhiteSpace(ip) || ip == "::1")
                 ip = "127.0.0.1";
@@ -48,20 +45,38 @@ namespace JRD_Projects.Controllers
             {
                 Location = location,
                 Timestamp = calgaryTime,
-                VisitorEmail = dto.Email   // ⭐ SAVE EMAIL HERE
+                VisitorEmail = dto.Email
             };
 
             _db.VisitorLog.Add(entry);
             await _db.SaveChangesAsync();
 
+            // ⭐ SEND EMAIL TO ROGER EVERY TIME SOMEONE LOGS IN
+            string subject = $"New Login Detected: {dto.Email}";
+            string body =
+                $"A user has logged in.\n\n" +
+                $"Email: {dto.Email}\n" +
+                $"Location: {location}\n" +
+                $"IP Address: {ip}\n" +
+                $"Time (Calgary): {calgaryTime:yyyy-MM-dd HH:mm:ss}\n";
+
+            // This sends the email to YOUR address
+            _email.Send(
+                to: "Roger.Delisle2410@gmail.com",
+                subject: subject,
+                body: body
+            );
+
             return Ok(new { status = "ok", visitorId = entry.Id });
         }
+
+
 
         // ⭐ LOG PROJECT CLICK
         [HttpPost("logClick")]
         public async Task<IActionResult> LogClick([FromBody] ProjectClickDto dto)
         {
-            Console.WriteLine($"CLICK: {dto.Project} for visitor {dto.VisitorId}");
+            //Console.WriteLine($"CLICK: {dto.Project} for visitor {dto.VisitorId}");
 
             var visitor = await _db.VisitorLog.FindAsync(dto.VisitorId);
             if (visitor == null)
