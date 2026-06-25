@@ -95,7 +95,8 @@ namespace JRD_Projects.Controllers
             var claims = new[]
             {
         new Claim(JwtRegisteredClaimNames.Sub, email),
-        new Claim(ClaimTypes.Email, email)   // ⭐ REQUIRED FOR /me
+        new Claim(ClaimTypes.Email, email),
+        new Claim(ClaimTypes.Name, email)   // ⭐ NEW — REQUIRED
     };
 
             var token = new JwtSecurityToken(
@@ -107,7 +108,7 @@ namespace JRD_Projects.Controllers
             );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
-        }
+        } 
     }
 
     // -------------------------

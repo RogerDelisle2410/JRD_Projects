@@ -67,7 +67,7 @@
                             Custom DocumentExtractor<br>
                         </p>
                     </div>
-                </div> 
+                </div>
                 <!-- Delivery Simulation -->
                 <div class="project-card">
                     <div class="panel">
@@ -168,7 +168,7 @@
                             Azure DevOps CD/CI<br><br><br>
                         </p>
                     </div>
-                </div> 
+                </div>
             </div>
 
             <p style="text-align: center; color: #b30000; font-size: 12px; font-weight: bold;  ">
@@ -186,7 +186,7 @@
 
                         <!-- Help popup -->
                         <div class="help-popup">
-                            An app that let you ask any question about the Canadian Military Atlas.
+                            Ask anything about Canada’s military bases, aircraft, ships, and historical sites.
 
                         </div>
                         <form action="https://bcatp-ai-bke2f7h7b9agbba3.canadacentral-01.azurewebsites.net/" target="_blank">
@@ -199,7 +199,7 @@
                             Entity Framework Core<br>
                             SQL Server, OpenAI API<br>
                             HttpClient-based OpenAI service<br>
-                            Azure DevOps CI/CD<br> 
+                            Azure DevOps CI/CD<br>
                         </p>
                     </div>
                 </div>
@@ -302,29 +302,56 @@
             </div>
         </div>
     </div>
-
-    <!-- Visitor Tracking -->
     <script>
         document.addEventListener("DOMContentLoaded", async () => {
             try {
-                const res = await fetch("/api/visitor/visit", { method: "POST" });
+                const token = sessionStorage.getItem("token");
+                const email = sessionStorage.getItem("userEmail");
+
+                const headers = {
+                    "Content-Type": "application/json"
+                };
+
+                if (token) {
+                    headers["Authorization"] = "Bearer " + token;
+                }
+
+                const res = await fetch("/api/visitor/visit", {
+                    method: "POST",
+                    headers: headers,
+                    body: JSON.stringify({ email })
+                });
+
                 const data = await res.json();
+
                 if (data.visitorId) {
-                    localStorage.setItem("visitorId", data.visitorId);
+                    sessionStorage.setItem("visitorId", data.visitorId);
                 }
             } catch (e) {
                 console.warn("Visit logging failed", e);
             }
         });
 
+
         async function trackClick(projectName) {
             event.stopPropagation();
+
             const visitorId = localStorage.getItem("visitorId");
             if (!visitorId) return;
 
+            const token = localStorage.getItem("token");
+
+            const headers = {
+                "Content-Type": "application/json"
+            };
+
+            if (token) {
+                headers["Authorization"] = "Bearer " + token;
+            }
+
             await fetch("/api/visitor/logClick", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: headers,
                 body: JSON.stringify({
                     visitorId: parseInt(visitorId),
                     project: projectName
@@ -332,6 +359,9 @@
             });
         }
     </script>
+
+
+
     <script>
         function toggleHelp(btn) {
             const panel = btn.closest('.panel');

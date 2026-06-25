@@ -17,7 +17,7 @@ namespace JRD_Projects.Data
 
                 entity.Property(e => e.Id).HasColumnName("id");
                 entity.Property(e => e.Timestamp).HasColumnName("timestamp");
-                //entity.Property(e => e.Ip).HasColumnName("ip");
+                entity.Property(e => e.VisitorEmail).HasColumnName("VisitorEmail");
                 //entity.Property(e => e.UserAgent).HasColumnName("user_agent");
                 //entity.Property(e => e.IsOwner).HasColumnName("is_owner");
                 entity.Property(e => e.Location).HasColumnName("location");

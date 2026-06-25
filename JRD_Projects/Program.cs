@@ -5,9 +5,10 @@ using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
+using Microsoft.IdentityModel.Tokens; 
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Logging.AddConsole();
 
 // -------------------------
 // DATABASE
@@ -50,6 +51,7 @@ builder.Services.AddAuthentication(options =>
         ValidateLifetime = true
     };
 });
+builder.Services.AddAuthorization();
 
 // -------------------------
 // BUILD APP

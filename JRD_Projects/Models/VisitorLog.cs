@@ -5,7 +5,7 @@
         public int Id { get; set; }
         public DateTime? Timestamp { get; set; }
         public string? Location { get; set; }
-
+       
         // New tracking columns
         public bool ClickAIDocuChat { get; set; }
         public bool ClickAngular { get; set; }
@@ -16,5 +16,6 @@
         public bool ClickPython { get; set; }
         public bool ClickJSPuzzle { get; set; }
         public bool ClickBattleships { get; set; }
+        public string? VisitorEmail { get; set; }
     } 
 }

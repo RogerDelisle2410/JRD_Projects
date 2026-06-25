@@ -23,11 +23,17 @@ namespace JRD_Projects.Controllers
         private static readonly TimeZoneInfo CalgaryTZ =
             TimeZoneInfo.FindSystemTimeZoneById("America/Edmonton");
 
-        // ⭐ LOG VISIT (no body expected)
+        public class VisitDto
+        {
+            public string? Email { get; set; }
+        }
+
+        // ⭐ LOG VISIT — SIMPLE, CLEAN, RELIABLE
         [HttpPost("visit")]
-        public async Task<IActionResult> Visit()
+        public async Task<IActionResult> Visit([FromBody] VisitDto dto)
         {
             Console.WriteLine("VISIT HIT");
+            Console.WriteLine("Email from client: " + dto.Email);
 
             string? ip = HttpContext.Connection.RemoteIpAddress?.ToString();
             if (string.IsNullOrWhiteSpace(ip) || ip == "::1")
@@ -35,19 +41,18 @@ namespace JRD_Projects.Controllers
 
             string location = await LookupLocation(ip);
 
-            DateTime calgaryTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, CalgaryTZ);
+            DateTime calgaryTime = TimeZoneInfo.ConvertTimeFromUtc(
+                DateTime.UtcNow, CalgaryTZ);
 
             var entry = new VisitorLog
             {
                 Location = location,
-                Timestamp = calgaryTime
+                Timestamp = calgaryTime,
+                VisitorEmail = dto.Email   // ⭐ SAVE EMAIL HERE
             };
 
             _db.VisitorLog.Add(entry);
             await _db.SaveChangesAsync();
-
-            string message = $"New visit at {calgaryTime:yyyy-MM-dd HH:mm:ss}\nLocation: {location}";
-            _email.Send(location, message);
 
             return Ok(new { status = "ok", visitorId = entry.Id });
         }
