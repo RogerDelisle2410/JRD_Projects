@@ -68,8 +68,7 @@ namespace JRD_Projects.Controllers
             );
 
             return Ok(new { status = "ok", visitorId = entry.Id });
-        }
-
+        } 
 
 
         // ⭐ LOG PROJECT CLICK
@@ -85,6 +84,7 @@ namespace JRD_Projects.Controllers
             switch (dto.Project)
             {
                 case "AI Docu Chat": visitor.ClickAIDocuChat = true; break;
+                case "BCATP AI": visitor.ClickBCATPAI = true; break;
                 case "Angular": visitor.ClickAngular = true; break;
                 case "Delivery Simulation": visitor.ClickDeliverySim = true; break;
                 case "React": visitor.ClickReact = true; break;
