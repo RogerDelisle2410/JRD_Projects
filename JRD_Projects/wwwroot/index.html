@@ -303,18 +303,23 @@
         </div>
     </div>
     <script>
+        console.log("SCRIPT VERSION: 2026-06-25-1");
+
         document.addEventListener("DOMContentLoaded", async () => {
             try {
                 const token = sessionStorage.getItem("token");
                 const email = sessionStorage.getItem("userEmail");
 
-                const headers = {
-                    "Content-Type": "application/json"
-                };
-
-                if (token) {
-                    headers["Authorization"] = "Bearer " + token;
+                // ⭐ If user is not logged in, DO NOT call /visit
+                if (!token || !email) {
+                    console.warn("User not logged in — skipping visit logging");
+                    return;
                 }
+
+                const headers = {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + token
+                };
 
                 const res = await fetch("/api/visitor/visit", {
                     method: "POST",
@@ -325,21 +330,27 @@
                 const data = await res.json();
 
                 if (data.visitorId) {
+                    console.log("NEW visitorId:", data.visitorId);
                     sessionStorage.setItem("visitorId", data.visitorId);
+                } else {
+                    console.warn("Visit endpoint returned no visitorId");
                 }
-            } catch (e) {
+            }
+            catch (e) {
                 console.warn("Visit logging failed", e);
             }
         });
 
 
+
         async function trackClick(projectName) {
             event.stopPropagation();
 
-            const visitorId = localStorage.getItem("visitorId");
+            const visitorId = sessionStorage.getItem("visitorId");
+
             if (!visitorId) return;
 
-            const token = localStorage.getItem("token");
+            const token = sessionStorage.getItem("token"); 
 
             const headers = {
                 "Content-Type": "application/json"
