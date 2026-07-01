@@ -68,288 +68,291 @@
             <p data-i18n="warning" style="text-align: center; color: #b30000; font-size: 12px; font-weight: bold;">
                 All apps are hosted on the Azure Free Tier and may take a few seconds to load.
             </p>
-        </div> 
+        </div>
 
         <!-- MAIN CONTENT -->
         <div class="main-content">
 
             <!-- ROW 1 -->
-            <div class="flex-container space-evenly">
+            <div class="project-row">
 
-                <!-- AI Docu Chat -->
-                <div class="project-card">
-                    <div class="panel">
-                        <button class="help-icon" type="button" onclick="toggleHelp(this)">
-                            ?
-                        </button>
+                <div class="flex-container space-evenly">
 
-                        <div data-i18n="hlp1" class="help-popup">
-                            This app lets you upload a document or image, and let you ask questions about it.
+                    <!-- AI Docu Chat -->
+                    <div class="project-card">
+                        <div class="panel">
+                            <button class="help-icon" type="button" onclick="toggleHelp(this)">
+                                ?
+                            </button>
+
+                            <div data-i18n="hlp1" class="help-popup">
+                                This app lets you upload a document or image, and let you ask questions about it.
+                            </div>
+                            <form action="https://docuchatpronet-a8hhhtbpgdcdehdv.canadacentral-01.azurewebsites.net/" target="_blank">
+                                <input data-i18n="btn1" type="submit" value="AI Docu Chat" class="button-primary" onclick="trackClick('AI Docu Chat')" />
+                            </form>
+                            <br />
+                            <p class="mt-3">
+                                ASP.NET Core 8 Web API (C#)<br>
+                                SQLite + Entity Framework Core<br>
+                                JWT Authentication<br>
+                                TailwindCSS + JavaScript<br>
+                                Azure App Service<br>
+                                OpenAI GPT‑4o‑mini via REST API<br>
+                                Custom DocumentExtractor<br>
+                            </p>
+                            <form action="https://github.com/RogerDelisle2410/DocuChatProNet/" target="_blank">
+                                <input type="submit" value="Github" class="button-primary2" />
+                            </form>
                         </div>
-                        <form action="https://docuchatpronet-a8hhhtbpgdcdehdv.canadacentral-01.azurewebsites.net/" target="_blank">
-                            <input data-i18n="btn1" type="submit" value="AI Docu Chat" class="button-primary" onclick="trackClick('AI Docu Chat')" />
-                        </form>
-                        <br />
-                        <p class="mt-3">
-                            ASP.NET Core 8 Web API (C#)<br>
-                            SQLite + Entity Framework Core<br>
-                            JWT Authentication<br>
-                            TailwindCSS + JavaScript<br>
-                            Azure App Service<br>
-                            OpenAI GPT‑4o‑mini via REST API<br>
-                            Custom DocumentExtractor<br>
-                        </p>
-                        <form action="https://github.com/RogerDelisle2410/DocuChatProNet/" target="_blank">
-                            <input type="submit" value="Github" class="button-primary2" />
-                        </form>
                     </div>
-                </div>
-                <!-- Delivery Simulation -->
-                <div class="project-card">
-                    <div class="panel">
-                        <button class="help-icon" type="button" onclick="toggleHelp(this)">
-                            ?
-                        </button>
+                    <!-- Delivery Simulation -->
+                    <div class="project-card">
+                        <div class="panel">
+                            <button class="help-icon" type="button" onclick="toggleHelp(this)">
+                                ?
+                            </button>
 
-                        <div data-i18n="hlp2" class="help-popup">
-                            An app that simulates and visualizes delivery routes, vehicles, and their operations for testing and analysis.
+                            <div data-i18n="hlp2" class="help-popup">
+                                An app that simulates and visualizes delivery routes, vehicles, and their operations for testing and analysis.
 
+                            </div>
+                            <form action="https://deliverysimwasm-g2h6gpdsfnbmergp.canadacentral-01.azurewebsites.net/" target="_blank">
+                                <input data-i18n="btn2" type="submit" value="Delivery Simulator" class="button-primary" onclick="trackClick('Delivery Simulation')" />
+                            </form>
+                            <p>
+                                <br>
+                                Blazor WebAssembly (.NET 8), C#<br>
+                                JavaScript, TypeScript, HTML, CSS<br>
+                                Google Maps JavaScript API<br>
+                                ASP.NET Core Web API on Azure<br>
+                                Azure DevOps CI/CD<br>
+                                Google Places Autocomplete & Directions<br> <br>
+                            </p>
+                            <form action="https://github.com/RogerDelisle2410/DeliverySimWasm/" target="_blank">
+                                <input type="submit" value="Github" class="button-primary2" />
+                            </form>
                         </div>
-                        <form action="https://deliverysimwasm-g2h6gpdsfnbmergp.canadacentral-01.azurewebsites.net/" target="_blank">
-                            <input data-i18n="btn2" type="submit" value="Delivery Simulator" class="button-primary" onclick="trackClick('Delivery Simulation')" />
-                        </form>
-                        <p>
-                            <br>
-                            Blazor WebAssembly (.NET 8), C#<br>
-                            JavaScript, TypeScript, HTML, CSS<br>
-                            Google Maps JavaScript API<br>
-                            ASP.NET Core Web API on Azure<br>
-                            Azure DevOps CI/CD<br>
-                            Google Places Autocomplete & Directions<br> <br>
-                        </p>
-                        <form action="https://github.com/RogerDelisle2410/DeliverySimWasm/" target="_blank">
-                            <input type="submit" value="Github" class="button-primary2" />
-                        </form>
                     </div>
-                </div>
-                <!-- Elevator Simulator -->
-                <div class="project-card">
-                    <div class="panel">
-                        <button class="help-icon" type="button" onclick="toggleHelp(this)">
-                            ?
-                        </button>
+                    <!-- Elevator Simulator -->
+                    <div class="project-card">
+                        <div class="panel">
+                            <button class="help-icon" type="button" onclick="toggleHelp(this)">
+                                ?
+                            </button>
 
-                        <div data-i18n="hlp3" class="help-popup">
-                            Simulates elevator trips in a tower where you choose a starting floor and a destination and watch the elevators operate.
+                            <div data-i18n="hlp3" class="help-popup">
+                                Simulates elevator trips in a tower where you choose a starting floor and a destination and watch the elevators operate.
+                            </div>
+                            <form action="https://elevatorsim-hpesaxcdhaeafshg.canadacentral-01.azurewebsites.net/" target="_blank">
+                                <input data-i18n="btn3" type="submit" value="Elevator Simulator" class="button-primary" onclick="trackClick('Elevator Simulator')" />
+                            </form>
+                            <p>
+                                <br>
+                                Blazor WebAssembly (.NET 8)<br>
+                                C#, JavaScript, HTML, CSS<br>
+                                Custom high‑rise elevator logic<br>
+                                Real‑time animation + UI engine<br>
+                                Azure App Service hosting<br>
+                                Azure DevOps CD/CI<br><br>
+                            </p>
+                            <form action="https://github.com/RogerDelisle2410/ElevatorSim/" target="_blank">
+                                <input type="submit" value="Github" class="button-primary2" />
+                            </form>
                         </div>
-                        <form action="https://elevatorsim-hpesaxcdhaeafshg.canadacentral-01.azurewebsites.net/" target="_blank">
-                            <input data-i18n="btn3" type="submit" value="Elevator Simulator" class="button-primary" onclick="trackClick('Elevator Simulator')" />
-                        </form>
-                        <p>
-                            <br>
-                            Blazor WebAssembly (.NET 8)<br>
-                            C#, JavaScript, HTML, CSS<br>
-                            Custom high‑rise elevator logic<br>
-                            Real‑time animation + UI engine<br>
-                            Azure App Service hosting<br>
-                            Azure DevOps CD/CI<br><br>
-                        </p>
-                        <form action="https://github.com/RogerDelisle2410/ElevatorSim/" target="_blank">
-                            <input type="submit" value="Github" class="button-primary2" />
-                        </form>
                     </div>
-                </div>
-                <!-- Subway Simulator -->
-                <div class="project-card">
-                    <div class="panel">
-                        <button class="help-icon" type="button" onclick="toggleHelp(this)">
-                            ?
-                        </button>
+                    <!-- Subway Simulator -->
+                    <div class="project-card">
+                        <div class="panel">
+                            <button class="help-icon" type="button" onclick="toggleHelp(this)">
+                                ?
+                            </button>
 
-                        <div data-i18n="hlp4" class="help-popup">
-                            Simulates subway system operations — modeling trains, stations, routes, and schedules in an interactive simulation.
+                            <div data-i18n="hlp4" class="help-popup">
+                                Simulates subway system operations — modeling trains, stations, routes, and schedules in an interactive simulation.
+                            </div>
+                            <form action="https://subwaysim-hchdevbjc3fqbpbf.canadacentral-01.azurewebsites.net/" target="_blank">
+                                <input data-i18n="btn4" type="submit" value="Subway Simulator" class="button-primary" onclick="trackClick('Subway Simulator')" />
+                            </form>
+                            <p>
+                                <br>
+                                Blazor WebAssembly (.NET 8)<br>
+                                C#, JavaScript, HTML, CSS<br>
+                                Custom map rendering + geometry engine<br>
+                                Train movement, dwell time, accel. logic<br>
+                                Azure App Service hosting<br>
+                                Real‑time simulation with JS interop<br>
+                                Azure DevOps CD/CI
+                            </p>
+                            <form action="https://github.com/RogerDelisle2410/SubwaySim/" target="_blank">
+                                <input type="submit" value="Github" class="button-primary2" />
+                            </form>
                         </div>
-                        <form action="https://subwaysim-hchdevbjc3fqbpbf.canadacentral-01.azurewebsites.net/" target="_blank">
-                            <input data-i18n="btn4" type="submit" value="Subway Simulator" class="button-primary" onclick="trackClick('Subway Simulator')" />
-                        </form>
-                        <p>
-                            <br>
-                            Blazor WebAssembly (.NET 8)<br>
-                            C#, JavaScript, HTML, CSS<br>
-                            Custom map rendering + geometry engine<br>
-                            Train movement, dwell time, accel. logic<br>
-                            Azure App Service hosting<br>
-                            Real‑time simulation with JS interop<br>
-                            Azure DevOps CD/CI
-                        </p>
-                        <form action="https://github.com/RogerDelisle2410/SubwaySim/" target="_blank">
-                            <input type="submit" value="Github" class="button-primary2" />
-                        </form>
                     </div>
-                </div>
-                <!-- Angular -->
-                <div class="project-card">
-                    <div class="panel">
-                        <button class="help-icon" type="button" onclick="toggleHelp(this)">
-                            ?
-                        </button>
+                    <!-- Angular -->
+                    <div class="project-card">
+                        <div class="panel">
+                            <button class="help-icon" type="button" onclick="toggleHelp(this)">
+                                ?
+                            </button>
 
-                        <div data-i18n="hlp5" class="help-popup">
-                            Provides CRUD access and interactive UI tools for multiple military site datasets (BCATP, Navy, DEW Line, etc.).
+                            <div data-i18n="hlp5" class="help-popup">
+                                Provides CRUD access and interactive UI tools for multiple military site datasets (BCATP, Navy, DEW Line, etc.).
+                            </div>
+                            <form action="https://bcatp-angular-ajhaewb5a7aaf3fy.canadacentral-01.azurewebsites.net/" target="_blank">
+                                <input data-i18n="btn5" type="submit" value="Angular Project" class="button-primary" onclick="trackClick('Angular')" />
+                            </form>
+                            <p>
+                                <br>
+                                TypeScript, C#, HTML, CSS<br>
+                                JavaScript, Bootstrap<br>
+                                Azure SQL DB<br>
+                                Google agm-map<br>
+                                Azure DevOps CD/CI<br><br><br>
+                            </p>
+                            <form action="https://github.com/RogerDelisle2410/BCATPAngular/" target="_blank">
+                                <input type="submit" value="Github" class="button-primary2" />
+                            </form>
                         </div>
-                        <form action="https://bcatp-angular-ajhaewb5a7aaf3fy.canadacentral-01.azurewebsites.net/" target="_blank">
-                            <input data-i18n="btn5" type="submit" value="Angular Project" class="button-primary" onclick="trackClick('Angular')" />
-                        </form>
-                        <p>
-                            <br>
-                            TypeScript, C#, HTML, CSS<br>
-                            JavaScript, Bootstrap<br>
-                            Azure SQL DB<br>
-                            Google agm-map<br>
-                            Azure DevOps CD/CI<br><br><br>
-                        </p>
-                        <form action="https://github.com/RogerDelisle2410/BCATPAngular/" target="_blank">
-                            <input type="submit" value="Github" class="button-primary2" />
-                        </form>
                     </div>
                 </div>
             </div>
 
-            <div style="width:100%; height:25px;"></div>
-
-
             <!-- ROW 2 -->
-            <div class="flex-container space-evenly">
-                <!-- BCATP AI Helper -->
-                <div class="project-card">
-                    <div class="panel">
-                        <button class="help-icon" type="button" onclick="toggleHelp(this)">
-                            ?
-                        </button>
-                        <!--Help popup-->
-                        <div data-i18n="hlp6" class="help-popup">
-                            Ask anything about Canada’s military bases, aircraft, ships, and historical sites.
+            <div class="project-row">
 
+                <div class="flex-container space-evenly">
+                    <!-- BCATP AI Helper -->
+                    <div class="project-card">
+                        <div class="panel">
+                            <button class="help-icon" type="button" onclick="toggleHelp(this)">
+                                ?
+                            </button>
+                            <!--Help popup-->
+                            <div data-i18n="hlp6" class="help-popup">
+                                Ask anything about Canada’s military bases, aircraft, ships, and historical sites.
+
+                            </div>
+                            <form action="https://bcatp-ai-bke2f7h7b9agbba3.canadacentral-01.azurewebsites.net/" target="_blank">
+                                <input data-i18n="btn6" type="submit" value="AI BCATP Atlas" class="button-primary" onclick="trackClick('BCATP AI')" />
+                            </form>
+                            <p>
+                                <br>
+                                ASP.NET Core 8 Web API<br>
+                                C# Models + Controllers<br>
+                                Entity Framework Core<br>
+                                SQL Server, OpenAI API<br>
+                                HttpClient-based OpenAI service<br>
+                                Azure DevOps CI/CD<br><br>
+                            </p>
+                            <form action="https://github.com/RogerDelisle2410/BCATP_AI/" target="_blank">
+                                <input type="submit" value="Github" class="button-primary2" />
+                            </form>
                         </div>
-                        <form action="https://bcatp-ai-bke2f7h7b9agbba3.canadacentral-01.azurewebsites.net/" target="_blank">
-                            <input data-i18n="btn6" type="submit" value="AI BCATP Atlas" class="button-primary" onclick="trackClick('BCATP AI')" />
-                        </form>
-                        <p>
-                            <br>
-                            ASP.NET Core 8 Web API<br>
-                            C# Models + Controllers<br>
-                            Entity Framework Core<br>
-                            SQL Server, OpenAI API<br>
-                            HttpClient-based OpenAI service<br>
-                            Azure DevOps CI/CD<br><br>
-                        </p>
-                        <form action="https://github.com/RogerDelisle2410/BCATP_AI/" target="_blank">
-                            <input type="submit" value="Github" class="button-primary2" />
-                        </form>
                     </div>
-                </div>
-                <!-- React -->
-                <div class="project-card">
-                    <div class="panel">
-                        <button class="help-icon" type="button" onclick="toggleHelp(this)">
-                            ?
-                        </button>
+                    <!-- React -->
+                    <div class="project-card">
+                        <div class="panel">
+                            <button class="help-icon" type="button" onclick="toggleHelp(this)">
+                                ?
+                            </button>
 
-                        <div data-i18n="hlp7" class="help-popup">
-                            Provides a web interface for accessing multiple military site datasets (Bcatp, Navy, Dewline, etc.).
+                            <div data-i18n="hlp7" class="help-popup">
+                                Provides a web interface for accessing multiple military site datasets (Bcatp, Navy, Dewline, etc.).
+                            </div>
+                            <form action="https://bcatp-api-gxaacbcxf5gpa0cm.canadacentral-01.azurewebsites.net/" target="_blank">
+                                <input data-i18n="btn7" type="submit" value="React Project" class="button-primary" onclick="trackClick('React')" />
+                            </form>
+                            <p>
+                                <br>
+                                TypeScript, JavaScript, C#, CSS<br>
+                                HTML, Shell<br>
+                                Bootstrap<br>
+                                Azure SQL DB<br>
+                                Azure DevOps CD/CI<br><br><br>
+                            </p>
+                            <form action="https://github.com/RogerDelisle2410/BCATPReact/" target="_blank">
+                                <input type="submit" value="Github" class="button-primary2" />
+                            </form>
                         </div>
-                        <form action="https://bcatp-api-gxaacbcxf5gpa0cm.canadacentral-01.azurewebsites.net/" target="_blank">
-                            <input data-i18n="btn7" type="submit" value="React Project" class="button-primary" onclick="trackClick('React')" />
-                        </form>
-                        <p>
-                            <br>
-                            TypeScript, JavaScript, C#, CSS<br>
-                            HTML, Shell<br>
-                            Bootstrap<br>
-                            Azure SQL DB<br>
-                            Azure DevOps CD/CI<br><br><br>
-                        </p>
-                        <form action="https://github.com/RogerDelisle2410/BCATPReact/" target="_blank">
-                            <input type="submit" value="Github" class="button-primary2" />
-                        </form>
                     </div>
-                </div>
-                <!-- JavaScript Puzzle -->
-                <div class="project-card">
-                    <div class="panel">
-                        <button class="help-icon" type="button" onclick="toggleHelp(this)">
-                            ?
-                        </button>
+                    <!-- JavaScript Puzzle -->
+                    <div class="project-card">
+                        <div class="panel">
+                            <button class="help-icon" type="button" onclick="toggleHelp(this)">
+                                ?
+                            </button>
 
-                        <div data-i18n="hlp8" class="help-popup">
-                            A sliding-tile puzzle where you rearrange and flip image pieces to restore the original can picture.
+                            <div data-i18n="hlp8" class="help-popup">
+                                A sliding-tile puzzle where you rearrange and flip image pieces to restore the original can picture.
+                            </div>
+                            <form action="https://puzzle-javascript-bpdafjbkgxapbsd9.canadacentral-01.azurewebsites.net/" target="_blank">
+                                <input data-i18n="btn8" type="submit" value="JavaScript Puzzle" class="button-primary" onclick="trackClick('JavaScript Puzzle')" />
+                            </form>
+                            <p>
+                                <br>
+                                ASP.NET WebForms<br>
+                                HTML5, CSS, JavaScript<br>
+                                jQuery, Bootstrap<br>
+                                Canvas API (2D)<br>
+                                browser localStorage<br>
+                                Image assets (PNG/BMP)<br><br>
+                            </p>
+                            <form action="https://github.com/RogerDelisle2410/PuzzleJavascript/" target="_blank">
+                                <input type="submit" value="Github" class="button-primary2" />
+                            </form>
                         </div>
-                        <form action="https://puzzle-javascript-bpdafjbkgxapbsd9.canadacentral-01.azurewebsites.net/" target="_blank">
-                            <input data-i18n="btn8" type="submit" value="JavaScript Puzzle" class="button-primary" onclick="trackClick('JavaScript Puzzle')" />
-                        </form>
-                        <p>
-                            <br>
-                            ASP.NET WebForms<br>
-                            HTML5, CSS, JavaScript<br>
-                            jQuery, Bootstrap<br>
-                            Canvas API (2D)<br>
-                            browser localStorage<br>
-                            Image assets (PNG/BMP)<br><br>
-                        </p>
-                        <form action="https://github.com/RogerDelisle2410/PuzzleJavascript/" target="_blank">
-                            <input type="submit" value="Github" class="button-primary2" />
-                        </form>
                     </div>
-                </div>
-                <!-- Python Project -->
-                <div class="project-card">
-                    <div class="panel">
-                        <button class="help-icon" type="button" onclick="toggleHelp(this)">
-                            ?
-                        </button>
+                    <!-- Python Project -->
+                    <div class="project-card">
+                        <div class="panel">
+                            <button class="help-icon" type="button" onclick="toggleHelp(this)">
+                                ?
+                            </button>
 
-                        <div data-i18n="hlp9" class="help-popup">
-                            A web application for managing and searching multiple historical military datasets.
+                            <div data-i18n="hlp9" class="help-popup">
+                                A web application for managing and searching multiple historical military datasets.
+                            </div>
+                            <form action="https://bcatp-python-gxepcqa3d5crbchn.canadacentral-01.azurewebsites.net/" target="_blank">
+                                <input data-i18n="btn9" type="submit" value="Python Project" class="button-primary" onclick="trackClick('Python Project')" />
+                            </form>
+                            <p>
+                                <br>
+                                Python (Flask)<br>
+                                HTML, CSS, JavaScript<br>
+                                Jinja templates<br>
+                                SQLite<br>
+                                Azure App Service<br>
+                                Azure DevOps CD/CI<br><br>
+                            </p>
+                            <form action="https://github.com/RogerDelisle2410/BCATP_Python/" target="_blank">
+                                <input type="submit" value="Github" class="button-primary2" />
+                            </form>
                         </div>
-                        <form action="https://bcatp-python-gxepcqa3d5crbchn.canadacentral-01.azurewebsites.net/" target="_blank">
-                            <input data-i18n="btn9" type="submit" value="Python Project" class="button-primary" onclick="trackClick('Python Project')" />
-                        </form>
-                        <p>
-                            <br>
-                            Python (Flask)<br>
-                            HTML, CSS, JavaScript<br>
-                            Jinja templates<br>
-                            SQLite<br>
-                            Azure App Service<br>
-                            Azure DevOps CD/CI<br><br>
-                        </p>
-                        <form action="https://github.com/RogerDelisle2410/BCATP_Python/" target="_blank">
-                            <input type="submit" value="Github" class="button-primary2" />
-                        </form>
                     </div>
-                </div>
-                <!-- BattleShips -->
-                <div class="project-card">
-                    <div class="panel">
-                        <button class="help-icon" type="button" onclick="toggleHelp(this)">
-                            ?
-                        </button>
+                    <!-- BattleShips -->
+                    <div class="project-card">
+                        <div class="panel">
+                            <button class="help-icon" type="button" onclick="toggleHelp(this)">
+                                ?
+                            </button>
 
-                        <div data-i18n="hlp10" class="help-popup">
-                            A two-player, space-themed Battleship game where players take turns firing at each other's hidden grids to locate and destroy spaceships.
+                            <div data-i18n="hlp10" class="help-popup">
+                                A two-player, space-themed Battleship game where players take turns firing at each other's hidden grids to locate and destroy spaceships.
+                            </div>
+                            <form action="https://battleships-awegbgdeerguffhp.canadacentral-01.azurewebsites.net/" target="_blank">
+                                <input data-i18n="btn10" type="submit" value="BattleShips" class="button-primary" onclick="trackClick('BattleShips')" />
+                            </form>
+                            <p>
+                                <br>
+                                ASP.NET Web Forms, C#<br>
+                                Bootstrap, jQuery<br>
+                                HTML/CSS<br><br><br><br><br>
+                            </p>
+                            <form action="https://github.com/RogerDelisle2410/BattleShips/" target="_blank">
+                                <input type="submit" value="Github" class="button-primary2" />
+                            </form>
                         </div>
-                        <form action="https://battleships-awegbgdeerguffhp.canadacentral-01.azurewebsites.net/" target="_blank">
-                            <input data-i18n="btn10" type="submit" value="BattleShips" class="button-primary" onclick="trackClick('BattleShips')" />
-                        </form>
-                        <p>
-                            <br>
-                            ASP.NET Web Forms, C#<br>
-                            Bootstrap, jQuery<br>
-                            HTML/CSS<br><br><br><br><br>
-                        </p>
-                        <form action="https://github.com/RogerDelisle2410/BattleShips/" target="_blank">
-                            <input type="submit" value="Github" class="button-primary2" />
-                        </form>
                     </div>
                 </div>
             </div>
@@ -441,15 +444,16 @@
         // ---------------------------
         window.onload = () => {
             /*const lang = localStorage.getItem("lang") || "en";*/
-            localStorage.setItem("lang", "en");
-            let lang = "en";
+            //localStorage.setItem("lang", "en");
+            //let lang = "en";
+            let lang = localStorage.getItem("lang") || "en";
 
             // Set radio button
             const rb = document.getElementById("lang-" + lang);
             if (rb) rb.checked = true;
 
             updateLanguageLabels(lang);
-            loadLanguage(lang);
+            // loadLanguage(lang);
 
             // Radio button handler
             document.querySelectorAll("input[name='lang']").forEach(rb => {
@@ -458,7 +462,7 @@
                     localStorage.setItem("lang", selected);
 
                     updateLanguageLabels(selected);
-                    loadLanguage(selected);
+                    //   loadLanguage(selected);
 
                     console.log("Language switched to:", selected);
                 });
@@ -558,6 +562,14 @@
         });
     </script>
 
+    <!-- Initialize language system (loads saved language and applies translations) -->
+    <script type="module">
+        import { initLanguage, translations } from "/js/language.js";
+        initLanguage();
+        // expose translations for any legacy/non-module scripts that expect them
+        window.currentTranslations = translations;
+    </script>
+
 
     <footer class="rd-footer">
         <div class="rd-footer-content">
@@ -609,6 +621,12 @@
         </div>
     </footer>
 
+    <script type="module">
+        import { initLanguage, translations } from "/js/language.js";
+
+        initLanguage();              // 1. read saved lang
+        window.currentTranslations = translations;  // 2. expose translations
+    </script> 
 
 </body>
 </html>

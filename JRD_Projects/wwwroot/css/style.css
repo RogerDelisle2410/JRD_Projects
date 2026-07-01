@@ -1,5 +1,5 @@
 ﻿/* Lock page to one screen, remove vertical scroll */
-html, body {
+/*html, body {
     height: 100vh;
     margin: 0;
     padding: 0;
@@ -9,15 +9,26 @@ html, body {
 
 body {
     background: linear-gradient(to bottom right, lightblue, cyan);
-}
+}*/
 
 /* Page layout: header + content + footer */
-.page-wrapper {
+/*.page-wrapper {
     display: flex;
     flex-direction: column;
     height: 100vh;
+}*/
+body {
+    background: linear-gradient(to bottom right, lightblue, cyan);
 }
 
+/* Page wrapper should NOT force height */
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* ← FIXED */
+}
+
+ 
 /* HEADER */
 .header {
     flex: 0 0 30px;
@@ -42,19 +53,19 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* centers the rows vertically */
-    overflow: hidden;
+    justify-content: flex-start;
+    overflow-y: auto;
+    padding-top: 10px; /* ← adjust this to control top spacing */
 }
+
 
 /* TWO ROWS OF PANELS */
 .flex-container {
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 40%; /* each row takes half the available space */
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    justify-content: center; /* center horizontally */
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px; /* NEW: consistent spacing */
 }
 
 /* PROJECT PANELS */
@@ -133,10 +144,10 @@ input {
     background: linear-gradient(180deg, #4a7dff, #2f5fe8);
     color: white;
     border: none;
-    height: 40px; /* button height */
-    line-height: 40px; /* centers text vertically */
+    height: 30px; /* button height */
+    line-height: 30px; /* centers text vertically */
     width: 180px; /* optional: makes it look like your screenshot */
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
     border-radius: 6px;
     cursor: pointer;
@@ -304,4 +315,13 @@ input {
     padding: 0 !important;
     font-size: 13px !important;
     color: black !important;
+}
+.project-card {
+    margin: 0; /* horizontal + vertical spacing */
+}
+
+.project-row {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px; /* ← spacing between rows */
 }

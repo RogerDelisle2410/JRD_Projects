@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>JRD Projects - Login</title>
+    <title>JRD Projects</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -12,38 +11,31 @@
 
     <div class="w-full flex justify-end items-center gap-4 px-6 mt-4">
 
-        <!-- English -->
         <label class="flex items-center gap-1 cursor-pointer">
             <input type="radio" name="lang" value="en" id="lang-en">
             <span id="label-en" data-i18n="lang_en">English</span>
         </label>
 
-        <!-- French -->
         <label class="flex items-center gap-1 cursor-pointer">
             <input type="radio" name="lang" value="fr" id="lang-fr">
             <span id="label-fr" data-i18n="lang_fr">Français</span>
         </label>
 
-        <!-- Spanish -->
         <label class="flex items-center gap-1 cursor-pointer">
             <input type="radio" name="lang" value="es" id="lang-es">
             <span id="label-es" data-i18n="lang_es">Español</span>
         </label>
     </div>
 
-
-    <!-- Title -->
     <h1 data-i18n="log" class="text-3xl font-bold text-gray-800 mt-6">
-        JRD Projects - Login
+        JRD Projects
     </h1>
 
-    <!-- Login Card -->
     <div class="bg-white p-8 rounded shadow-md w-96 mt-6">
-        <h2  class="text-2xl font-bold mb-4 text-center">Login</h2>
+        <h2 data-i18n="log2" class="text-2xl font-bold mb-4 text-center">Login</h2>
 
         <form id="loginForm" class="space-y-4">
 
-            <!-- Username -->
             <div class="flex">
                 <input class="w-full p-2 border rounded-l"
                        type="text"
@@ -54,7 +46,6 @@
                 <span class="p-2 border rounded-r bg-gray-100">@JRD.com</span>
             </div>
 
-            <!-- Password -->
             <div class="relative">
                 <input class="w-full p-2 border rounded"
                        type="password"
@@ -65,30 +56,11 @@
 
                 <span id="togglePassword"
                       class="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-500">
-
-                    <!-- Eye (show) -->
-                    <svg id="eyeOpen" xmlns="http://www.w3.org/2000/svg" fill="none"
-                         viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                         class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                              d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-
-                    <!-- Eye Slash (hide) -->
-                    <svg id="eyeClosed" xmlns="http://www.w3.org/2000/svg" fill="none"
-                         viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                         class="w-5 h-5 hidden">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                              d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c1.79 0 3.487-.41 4.98-1.137M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.774 3.162 10.066 7.5a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l12.544 12.544" />
-                    </svg>
-
+                    <!-- eye icons -->
                 </span>
             </div>
 
-            <!-- Submit -->
-            <button type="submit"  data-i18n="log3" 
+            <button type="submit" data-i18n="log3"
                     class="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">
                 Login
             </button>
@@ -99,92 +71,7 @@
                 Create an account
             </a>
         </p>
-    </div>
-
-
-
-    <script>
-        window.onload = () => {
-
-            // ---------------------------
-            // 1. LABEL SWITCHING (simple)
-            // ---------------------------
-            function updateLabels(lang) {
-                if (lang === "en") {
-                    document.getElementById("label-en").textContent = "English";
-                    document.getElementById("label-fr").textContent = "French";
-                    document.getElementById("label-es").textContent = "Spanish";
-                }
-                else if (lang === "fr") {
-                    document.getElementById("label-en").textContent = "Anglais";
-                    document.getElementById("label-fr").textContent = "Français";
-                    document.getElementById("label-es").textContent = "Espagnol";
-                }
-                else if (lang === "es") {
-                    document.getElementById("label-en").textContent = "Inglés";
-                    document.getElementById("label-fr").textContent = "Francés";
-                    document.getElementById("label-es").textContent = "Español";
-                }
-            }
-
-            // ---------------------------
-            // 2. OPTIONAL JSON LOADING (you can remove this if not needed)
-            // ---------------------------
-            async function loadLanguage(lang) {
-                try {
-                    const res = await fetch(`/Lang/${lang}.json`);
-                    const translations = await res.json();
-
-                    document.querySelectorAll("[data-i18n]").forEach(el => {
-                        const key = el.getAttribute("data-i18n");
-                        if (translations[key]) el.textContent = translations[key];
-                    });
-
-                    document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
-                        const key = el.getAttribute("data-i18n-placeholder");
-                        if (translations[key]) el.placeholder = translations[key];
-                    });
-
-                    console.log("Language loaded:", lang);
-                }
-                catch (err) {
-                    console.error("Translation load failed:", err);
-                }
-            }
-
-            // ---------------------------
-            // 3. INITIALIZATION
-            // ---------------------------
-           /* let currentLang = localStorage.getItem("lang") || "en";*/
-            localStorage.setItem("lang", "en");
-            let currentLang = "en";
-
-            const rb = document.getElementById("lang-" + currentLang);
-            if (rb) rb.checked = true;
-
-            // Update the two labels
-            updateLabels(currentLang);
-
-            // Load JSON translations (optional)
-            loadLanguage(currentLang);
-
-            // ---------------------------
-            // 4. RADIO BUTTON HANDLER
-            // ---------------------------
-            document.querySelectorAll("input[name='lang']").forEach(rb => {
-                rb.addEventListener("change", async () => {
-                    const selected = rb.value;
-                    localStorage.setItem("lang", selected);
-
-                    updateLabels(selected);
-                    loadLanguage(selected);
-
-                    console.log("Language switched to:", selected);
-                });
-            }); 
-        };
-    </script>
-
+    </div> 
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -199,7 +86,7 @@
 
             form.addEventListener("submit", async (e) => {
                 e.preventDefault();
-                const email = getFullEmail();   // <-- FIXED HERE
+                const email = getFullEmail();
                 const password = document.getElementById("password").value;
 
                 const response = await fetch("/api/auth/login", {
@@ -220,23 +107,22 @@
                 }
 
                 if (response.ok) {
-                    // ⭐ FIXED: use sessionStorage
                     sessionStorage.setItem("token", data.token);
                     sessionStorage.setItem("userEmail", email);
-                    // go to dashboard
                     window.location.href = "/index.html";
                 } else {
                     alert(data.detail || "Login failed");
                 }
             });
         });
-
     </script>
+
     <script>
         function getFullEmail() {
             return document.getElementById("emailUser").value + "@JRD.com";
         }
     </script>
+
     <script>
         document.getElementById("togglePassword").addEventListener("click", () => {
             const input = document.getElementById("password");
@@ -250,6 +136,12 @@
             eyeClosed.classList.toggle("hidden", isHidden);
         });
     </script>
+
+    <script type="module">
+        import { initLanguage, translations } from "/js/language.js";
+        initLanguage();
+        // expose translations for the non-module script above
+        window.currentTranslations = translations;
+    </script>
 </body>
 </html>
-
