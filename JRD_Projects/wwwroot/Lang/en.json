@@ -20,6 +20,33 @@
   "alert_invalidUser": "Invalid username.",
   "alert_accountCreated": "Account created successfully. Please log in.",
   "alert_registrationFailed": "Registration failed",
-  "alert_serverError": "Server error:"
+  "alert_serverError": "Server error:",
+  "title": "Sample Projects of Roger Delisle",
 
+  "hlp1": "Upload a document or image and receive AI‑driven answers and insights.",
+  "hlp2": "Simulates and visualizes delivery routes, vehicles, and logistics operations for analysis and testing.",
+  "hlp3": "Models elevator operations in a high‑rise tower, allowing users to select floors and observe real‑time movement.",
+  "hlp4": "Simulates subway network operations, including trains, stations, routing, and scheduling in an interactive environment.",
+  "hlp5": "Provides CRUD functionality and interactive tools for exploring multiple military site datasets (BCATP, Navy, DEW Line, etc.).",
+  "hlp6": "Enables users to query detailed information about Canada’s military bases, aircraft, ships, and historical sites.",
+  "hlp7": "Offers a web interface for accessing and navigating multiple military site datasets (BCATP, Navy, DEW Line, etc.).",
+  "hlp8": "A sliding‑tile puzzle where users rearrange and flip image segments to restore the original picture.",
+  "hlp9": "A web application for managing, searching, and analyzing historical military datasets.",
+  "hlp10": "A two‑player, space‑themed Battleship game where players locate and destroy each other’s hidden ships.",
+  "warning": "All applications are hosted on the Azure Free Tier and may require a few seconds to load.",
+
+  "btn1": "AI Docu Chat",
+  "btn2": "Delivery Simulator",
+  "btn3": "Elevator Simulator",
+  "btn4": "Subway Simulator",
+  "btn5": "Angular Project",
+  "btn6": "AI BCATP Atlas",
+  "btn7": "React Project",
+  "btn8": "JavaScript Puzzle",
+  "btn9": "Python Project",
+  "btn10": "BattleShips",
+
+  "contact": "Contact",
+  "resume": "📄 Download Resume",
+  "allright": "© 2026 Roger J. Delisle — All Rights Reserved" 
 }

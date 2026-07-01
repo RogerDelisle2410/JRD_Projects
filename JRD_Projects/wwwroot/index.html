@@ -30,11 +30,49 @@
 
     <div class="page-wrapper">
 
-        <!-- HEADER -->
-        <div class="header">
-            <div class="title-main">Sample Projects of Roger Delisle</div>
-            <!--<div class="title-sub">JRD.Consulting@hotmail.com &nbsp;&nbsp; (403) 710-5817</div>-->
+        <div class="header-wrapper" style="width: 100%; margin-top: 30px; margin-bottom: 20px;">
+            <div class="header-inner"
+                 style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center;">
+
+                <!-- LEFT: Flexible spacer -->
+                <div style="flex: 1;"></div>
+
+                <!-- CENTER: Title (no shrink) -->
+                <h1 data-i18n="title" style="flex: 0 0 auto; white-space: nowrap; text-align: center; color: black; font-size: 30px; font-weight: bold;   margin: 0;">
+                    Sample Projects of Roger Delisle
+                </h1>
+
+                <!-- RIGHT: Language Radios -->
+                <div style="flex: 1; display: flex; justify-content: flex-end; gap: 20px; color: black; font-size: 14px; white-space: nowrap; ">
+
+                    <label class="lang-radio">
+                        <input type="radio" name="lang" value="en" id="lang-en">
+                        <span id="label-en" data-i18n="lang_en">English</span>
+                    </label>
+
+                    <label class="lang-radio">
+                        <input type="radio" name="lang" value="fr" id="lang-fr">
+                        <span id="label-fr" data-i18n="lang_fr">Français</span>
+                    </label>
+
+                    <label class="lang-radio">
+                        <input type="radio" name="lang" value="es" id="lang-es">
+                        <span id="label-es" data-i18n="lang_es">Español</span>
+                    </label>
+
+                </div>
+            </div>
         </div>
+
+        <div style="height:0px;">
+            <p data-i18n="warning" style="text-align: center; color: #b30000; font-size: 12px; font-weight: bold;">
+                All apps are hosted on the Azure Free Tier and may take a few seconds to load.
+            </p>
+        </div>
+
+
+
+
 
         <!-- MAIN CONTENT -->
         <div class="main-content">
@@ -49,11 +87,11 @@
                             ?
                         </button>
 
-                        <div class="help-popup">
+                        <div data-i18n="hlp1" class="help-popup">
                             This app lets you upload a document or image, and let you ask questions about it.
                         </div>
                         <form action="https://docuchatpronet-a8hhhtbpgdcdehdv.canadacentral-01.azurewebsites.net/" target="_blank">
-                            <input type="submit" value="AI Docu Chat" class="button-primary" onclick="trackClick('AI Docu Chat')" />
+                            <input data-i18n="btn1" type="submit" value="AI Docu Chat" class="button-primary" onclick="trackClick('AI Docu Chat')" />
                         </form>
                         <br />
                         <p class="mt-3">
@@ -77,12 +115,12 @@
                             ?
                         </button>
 
-                        <div class="help-popup">
+                        <div data-i18n="hlp2" class="help-popup">
                             An app that simulates and visualizes delivery routes, vehicles, and their operations for testing and analysis.
 
                         </div>
                         <form action="https://deliverysimwasm-g2h6gpdsfnbmergp.canadacentral-01.azurewebsites.net/" target="_blank">
-                            <input type="submit" value="Delivery Simulator" class="button-primary" onclick="trackClick('Delivery Simulation')" />
+                            <input data-i18n="btn2" type="submit" value="Delivery Simulator" class="button-primary" onclick="trackClick('Delivery Simulation')" />
                         </form>
                         <p>
                             <br>
@@ -105,11 +143,11 @@
                             ?
                         </button>
 
-                        <div class="help-popup">
+                        <div data-i18n="hlp3" class="help-popup">
                             Simulates elevator trips in a tower where you choose a starting floor and a destination and watch the elevators operate.
                         </div>
                         <form action="https://elevatorsim-hpesaxcdhaeafshg.canadacentral-01.azurewebsites.net/" target="_blank">
-                            <input type="submit" value="Elevator Simulator" class="button-primary" onclick="trackClick('Elevator Simulator')" />
+                            <input data-i18n="btn3" type="submit" value="Elevator Simulator" class="button-primary" onclick="trackClick('Elevator Simulator')" />
                         </form>
                         <p>
                             <br>
@@ -132,11 +170,11 @@
                             ?
                         </button>
 
-                        <div class="help-popup">
+                        <div data-i18n="hlp4" class="help-popup">
                             Simulates subway system operations — modeling trains, stations, routes, and schedules in an interactive simulation.
                         </div>
                         <form action="https://subwaysim-hchdevbjc3fqbpbf.canadacentral-01.azurewebsites.net/" target="_blank">
-                            <input type="submit" value="Subway Simulator" class="button-primary" onclick="trackClick('Subway Simulator')" />
+                            <input data-i18n="btn4" type="submit" value="Subway Simulator" class="button-primary" onclick="trackClick('Subway Simulator')" />
                         </form>
                         <p>
                             <br>
@@ -160,11 +198,11 @@
                             ?
                         </button>
 
-                        <div class="help-popup">
+                        <div data-i18n="hlp5" class="help-popup">
                             Provides CRUD access and interactive UI tools for multiple military site datasets (BCATP, Navy, DEW Line, etc.).
                         </div>
                         <form action="https://bcatp-angular-ajhaewb5a7aaf3fy.canadacentral-01.azurewebsites.net/" target="_blank">
-                            <input type="submit" value="Angular Project" class="button-primary" onclick="trackClick('Angular')" />
+                            <input data-i18n="btn5" type="submit" value="Angular Project" class="button-primary" onclick="trackClick('Angular')" />
                         </form>
                         <p>
                             <br>
@@ -180,11 +218,9 @@
                     </div>
                 </div>
             </div>
-            <div style="height:35px;">
-                <p style="text-align: center; color: #b30000; font-size: 12px; font-weight: bold;">
-                    All apps are hosted on the Azure Free Tier and may take a few seconds to load.
-                </p>
-            </div>
+
+            <div style="height:25px;"></div>
+
             <!-- ROW 2 -->
             <div class="flex-container space-evenly">
                 <!-- BCATP AI Helper -->
@@ -194,12 +230,12 @@
                             ?
                         </button>
                         <!--Help popup-->
-                        <div class="help-popup">
+                        <div data-i18n="hlp6" class="help-popup">
                             Ask anything about Canada’s military bases, aircraft, ships, and historical sites.
 
                         </div>
                         <form action="https://bcatp-ai-bke2f7h7b9agbba3.canadacentral-01.azurewebsites.net/" target="_blank">
-                            <input type="submit" value="AI BCATP Atlas" class="button-primary" onclick="trackClick('BCATP AI')" />
+                            <input data-i18n="btn6" type="submit" value="AI BCATP Atlas" class="button-primary" onclick="trackClick('BCATP AI')" />
                         </form>
                         <p>
                             <br>
@@ -222,11 +258,11 @@
                             ?
                         </button>
 
-                        <div class="help-popup">
+                        <div data-i18n="hlp7" class="help-popup">
                             Provides a web interface for accessing multiple military site datasets (Bcatp, Navy, Dewline, etc.).
                         </div>
                         <form action="https://bcatp-api-gxaacbcxf5gpa0cm.canadacentral-01.azurewebsites.net/" target="_blank">
-                            <input type="submit" value="React Project" class="button-primary" onclick="trackClick('React')" />
+                            <input data-i18n="btn7" type="submit" value="React Project" class="button-primary" onclick="trackClick('React')" />
                         </form>
                         <p>
                             <br>
@@ -248,11 +284,11 @@
                             ?
                         </button>
 
-                        <div class="help-popup">
+                        <div data-i18n="hlp8" class="help-popup">
                             A sliding-tile puzzle where you rearrange and flip image pieces to restore the original can picture.
                         </div>
                         <form action="https://puzzle-javascript-bpdafjbkgxapbsd9.canadacentral-01.azurewebsites.net/" target="_blank">
-                            <input type="submit" value="JavaScript Puzzle" class="button-primary" onclick="trackClick('JavaScript Puzzle')" />
+                            <input data-i18n="btn8" type="submit" value="JavaScript Puzzle" class="button-primary" onclick="trackClick('JavaScript Puzzle')" />
                         </form>
                         <p>
                             <br>
@@ -275,11 +311,11 @@
                             ?
                         </button>
 
-                        <div class="help-popup">
+                        <div data-i18n="hlp9" class="help-popup">
                             A web application for managing and searching multiple historical military datasets.
                         </div>
                         <form action="https://bcatp-python-gxepcqa3d5crbchn.canadacentral-01.azurewebsites.net/" target="_blank">
-                            <input type="submit" value="Python Project" class="button-primary" onclick="trackClick('Python Project')" />
+                            <input data-i18n="btn9" type="submit" value="Python Project" class="button-primary" onclick="trackClick('Python Project')" />
                         </form>
                         <p>
                             <br>
@@ -302,11 +338,11 @@
                             ?
                         </button>
 
-                        <div class="help-popup">
+                        <div data-i18n="hlp10" class="help-popup">
                             A two-player, space-themed Battleship game where players take turns firing at each other's hidden grids to locate and destroy spaceships.
                         </div>
                         <form action="https://battleships-awegbgdeerguffhp.canadacentral-01.azurewebsites.net/" target="_blank">
-                            <input type="submit" value="BattleShips" class="button-primary" onclick="trackClick('BattleShips')" />
+                            <input data-i18n="btn10" type="submit" value="BattleShips" class="button-primary" onclick="trackClick('BattleShips')" />
                         </form>
                         <p>
                             <br>
@@ -322,6 +358,117 @@
             </div>
         </div>
     </div>
+
+    <script>
+        let currentTranslations = {};
+
+        async function loadLanguage(lang) {
+            try {
+                const res = await fetch(`/Lang/${lang}.json`);
+                currentTranslations = await res.json();
+
+                applyTranslations();
+            } catch (err) {
+                console.error("Translation load failed:", err);
+            }
+        }
+
+        function applyTranslations() {
+
+            // ---------------------------
+            // TEXT + BUTTONS (data-i18n)
+            // ---------------------------
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+                const key = el.getAttribute("data-i18n");
+                const translated = currentTranslations[key];
+                if (!translated) return;
+
+                // Buttons and submit inputs
+                if (el.tagName === "INPUT") {
+                    const type = el.type.toLowerCase();
+                    if (type === "submit" || type === "button") {
+                        el.value = translated;
+                        return;
+                    }
+                }
+
+                // Default: textContent
+                el.textContent = translated;
+            });
+
+            // ---------------------------
+            // PLACEHOLDER (data-i18n-placeholder)
+            // ---------------------------
+            document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+                const key = el.getAttribute("data-i18n-placeholder");
+                const translated = currentTranslations[key];
+                if (translated) el.placeholder = translated;
+            });
+
+            // ---------------------------
+            // TITLE (data-i18n-title)
+            // ---------------------------
+            document.querySelectorAll("[data-i18n-title]").forEach(el => {
+                const key = el.getAttribute("data-i18n-title");
+                const translated = currentTranslations[key];
+                if (translated) el.title = translated;
+            });
+
+            // ---------------------------
+            // ARIA LABEL (data-i18n-aria)
+            // ---------------------------
+            document.querySelectorAll("[data-i18n-aria]").forEach(el => {
+                const key = el.getAttribute("data-i18n-aria");
+                const translated = currentTranslations[key];
+                if (translated) el.setAttribute("aria-label", translated);
+            });
+        }
+
+        // ---------------------------
+        // LANGUAGE LABELS (radio text)
+        // ---------------------------
+        function updateLanguageLabels(lang) {
+            const map = {
+                en: { en: "English", fr: "French", es: "Spanish" },
+                fr: { en: "Anglais", fr: "Français", es: "Espagnol" },
+                es: { en: "Inglés", fr: "Francés", es: "Español" }
+            };
+
+            document.getElementById("label-en").textContent = map[lang].en;
+            document.getElementById("label-fr").textContent = map[lang].fr;
+            document.getElementById("label-es").textContent = map[lang].es;
+        }
+
+        // ---------------------------
+        // INITIALIZATION
+        // ---------------------------
+        window.onload = () => {
+            /*const lang = localStorage.getItem("lang") || "en";*/
+            localStorage.setItem("lang", "en");
+            let lang = "en";
+
+            // Set radio button
+            const rb = document.getElementById("lang-" + lang);
+            if (rb) rb.checked = true;
+
+            updateLanguageLabels(lang);
+            loadLanguage(lang);
+
+            // Radio button handler
+            document.querySelectorAll("input[name='lang']").forEach(rb => {
+                rb.addEventListener("change", () => {
+                    const selected = rb.value;
+                    localStorage.setItem("lang", selected);
+
+                    updateLanguageLabels(selected);
+                    loadLanguage(selected);
+
+                    console.log("Language switched to:", selected);
+                });
+            });
+        };
+    </script>
+
     <script>
         console.log("SCRIPT VERSION: 2026-06-25-1");
 
@@ -413,11 +560,13 @@
             }
         });
     </script>
+
+
     <footer class="rd-footer">
         <div class="rd-footer-content">
 
             <div class="rd-footer-left">
-                <div class="rd-footer-title">Contact</div>
+                <div data-i18n="contact" class="rd-footer-title">Contact</div>
                 <div class="rd-footer-item">
                     📧 <a href="mailto:JRD.Consulting@hotmail.com">JRD.Consulting@hotmail.com</a>
                 </div>
@@ -449,7 +598,7 @@
                     </svg>
                 </a>
 
-                <a class="rd-footer-button"
+                <a data-i18n="resume" class="rd-footer-button"
                    href="/Assets/Resume/Resume%20of%20Roger%20J%20Delisle.pdf"
                    target="_blank">
                     📄 Download Resume
@@ -458,7 +607,7 @@
             </div>
         </div>
 
-        <div class="rd-footer-bottom">
+        <div data-i18n="allright" class="rd-footer-bottom">
             © 2026 Roger J. Delisle — All Rights Reserved
         </div>
     </footer>

@@ -114,7 +114,9 @@
             // ---------------------------
             // 3. INITIALIZATION
             // ---------------------------
-            let currentLang = localStorage.getItem("lang") || "en";
+            /*let currentLang = localStorage.getItem("lang") || "en";*/
+            localStorage.setItem("lang", "en");
+            let currentLang = "en";
 
             const rb = document.getElementById("lang-" + currentLang);
             if (rb) rb.checked = true;

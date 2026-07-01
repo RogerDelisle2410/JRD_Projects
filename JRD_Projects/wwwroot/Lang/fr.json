@@ -20,5 +20,32 @@
   "alert_invalidUser": "Nom d’utilisateur invalide.",
   "alert_accountCreated": "Compte créé avec succès. Veuillez vous connecter.",
   "alert_registrationFailed": "Échec de l’inscription",
-  "alert_serverError": "Erreur du serveur :"
+  "alert_serverError": "Erreur du serveur :",
+  "title": "Projets de démonstration de Roger Delisle",
+  "hlp1": "Téléversez un document ou une image et obtenez des réponses et analyses générées par l’IA.",
+  "hlp2": "Simule et visualise des itinéraires de livraison, des véhicules et des opérations logistiques pour l’analyse et les tests.",
+  "hlp3": "Modélise le fonctionnement d’ascenseurs dans une tour, permettant de sélectionner des étages et d’observer les déplacements en temps réel.",
+  "hlp4": "Simule les opérations d’un réseau de métro, incluant trains, stations, itinéraires et horaires dans un environnement interactif.",
+  "hlp5": "Fournit des fonctions CRUD et des outils interactifs pour explorer plusieurs ensembles de données militaires (BCATP, Marine, ligne DEW, etc.).",
+  "hlp6": "Permet de consulter des informations détaillées sur les bases militaires, aéronefs, navires et sites historiques du Canada.",
+  "hlp7": "Offre une interface web pour accéder et naviguer dans plusieurs ensembles de données militaires (BCATP, Marine, ligne DEW, etc.).",
+  "hlp8": "Un casse‑tête à tuiles glissantes où l’utilisateur réorganise et retourne des segments d’image pour reconstituer l’original.",
+  "hlp9": "Application web permettant de gérer, rechercher et analyser des ensembles de données militaires historiques.",
+  "hlp10": "Jeu de bataille navale à deux joueurs, dans un thème spatial, où chacun tente de localiser et détruire les navires adverses.",
+  "warning": "Toutes les applications sont hébergées sur Azure Free Tier et peuvent nécessiter quelques secondes de chargement.",
+
+  "btn1": "AI Docu Chat",
+  "btn2": "Simulateur de livraison",
+  "btn3": "Simulateur d’ascenseur",
+  "btn4": "Simulateur de métro",
+  "btn5": "Projet Angular",
+  "btn6": "Atlas IA BCATP",
+  "btn7": "Projet React",
+  "btn8": "Puzzle JavaScript",
+  "btn9": "Projet Python",
+  "btn10": "Bataille spatiale",
+
+  "contact": "Contact",
+  "resume": "📄 Télécharger le CV",
+  "allright": "© 2026 Roger J. Delisle — Tous droits réservés"
 }

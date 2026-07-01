@@ -20,8 +20,32 @@
   "alert_invalidUser": "Nombre de usuario inválido.",
   "alert_accountCreated": "Cuenta creada con éxito. Por favor, inicie sesión.",
   "alert_registrationFailed": "Error en el registro",
-  "alert_serverError": "Error del servidor:"
+  "alert_serverError": "Error del servidor:",
+  "title": "Proyectos de muestra de Roger Delisle",
+  "hlp1": "Cargue un documento o imagen y reciba respuestas y análisis generados por IA.",
+  "hlp2": "Simula y visualiza rutas de entrega, vehículos y operaciones logísticas para análisis y pruebas.",
+  "hlp3": "Modela el funcionamiento de ascensores en una torre, permitiendo seleccionar pisos y observar el movimiento en tiempo real.",
+  "hlp4": "Simula operaciones de un sistema de metro, incluyendo trenes, estaciones, rutas y horarios en un entorno interactivo.",
+  "hlp5": "Proporciona funciones CRUD y herramientas interactivas para explorar múltiples conjuntos de datos militares (BCATP, Marina, línea DEW, etc.).",
+  "hlp6": "Permite consultar información detallada sobre bases militares, aeronaves, barcos y sitios históricos de Canadá.",
+  "hlp7": "Ofrece una interfaz web para acceder y navegar múltiples conjuntos de datos militares (BCATP, Marina, línea DEW, etc.).",
+  "hlp8": "Un rompecabezas de fichas deslizantes donde el usuario reorganiza y gira segmentos de imagen para reconstruir la original.",
+  "hlp9": "Aplicación web para gestionar, buscar y analizar conjuntos de datos militares históricos.",
+  "hlp10": "Juego de Batalla Naval para dos jugadores, con temática espacial, donde cada uno intenta localizar y destruir los barcos ocultos del oponente.",
+  "warning": "Todas las aplicaciones están alojadas en Azure Free Tier y pueden tardar unos segundos en cargar.", 
+
+  "btn1": "AI Docu Chat",
+  "btn2": "Simulador de entregas",
+  "btn3": "Simulador de ascensores",
+  "btn4": "Simulador de metro",
+  "btn5": "Proyecto Angular",
+  "btn6": "Atlas IA BCATP",
+  "btn7": "Proyecto React",
+  "btn8": "Rompecabezas JavaScript",
+  "btn9": "Proyecto Python",
+  "btn10": "Batalla espacial", 
+
+  "contact": "Contacto",
+  "resume": "📄 Descargar currículum",
+  "allright": "© 2026 Roger J. Delisle — Todos los derechos reservados"
 }
-
-
- 
