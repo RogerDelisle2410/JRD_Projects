@@ -1,0 +1,25 @@
+﻿{
+  "log": "JRD Projects – Login",
+  "log2": "Login",
+  "usernm": "Username",
+  "pass": "Password",
+  "log3": "Login",
+  "Create": "Create an account",
+  "create2": "Create Account",
+  "fictitious": "Use fictitious email and password",
+  "usernm2": "Username",
+  "pass2": "Password",
+  "pass3": "Confirm Password",
+  "show": "Show password",
+  "create3": " Create Account",
+  "back": "Back to Login",
+  "invalidUser": "Invalid username — do not include @ or special characters.",
+  "validUser": "Valid username ✓",
+  "passMatch": "Passwords match ✓",
+  "passNoMatch": "Passwords do not match ✗",
+  "alert_invalidUser": "Invalid username.",
+  "alert_accountCreated": "Account created successfully. Please log in.",
+  "alert_registrationFailed": "Registration failed",
+  "alert_serverError": "Server error:"
+
+}

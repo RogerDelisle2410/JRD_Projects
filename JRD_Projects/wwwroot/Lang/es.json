@@ -1,0 +1,27 @@
+﻿{
+  "log": "JRD Proyectos – Inicio de sesión",
+  "log2": "Iniciar sesión",
+  "usernm": "Nombre de usuario",
+  "pass": "Contraseña",
+  "log3": "Iniciar sesión",
+  "Create": "Crear una cuenta",
+  "create2": "Crear una cuenta",
+  "fictitious": "Use un correo y una contraseña ficticios",
+  "usernm2": "Nombre de usuario",
+  "pass2": "Contraseña",
+  "pass3": "Confirmar contraseña",
+  "show": "Mostrar la contraseña",
+  "create3": "Crear una cuenta",
+  "back": "Volver al inicio de sesión",
+  "invalidUser": "Nombre de usuario inválido — no incluya @ ni caracteres especiales.",
+  "validUser": "Nombre de usuario válido ✓",
+  "passMatch": "Las contraseñas coinciden ✓",
+  "passNoMatch": "Las contraseñas no coinciden ✗",
+  "alert_invalidUser": "Nombre de usuario inválido.",
+  "alert_accountCreated": "Cuenta creada con éxito. Por favor, inicie sesión.",
+  "alert_registrationFailed": "Error en el registro",
+  "alert_serverError": "Error del servidor:"
+}
+
+
+ 
